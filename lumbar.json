@@ -24,12 +24,17 @@
         "js/paged-collection.js",
 
         "js/init.js",
+        "js/data.js",
+        "js/web-data.js",
+        "js/view-helpers.js",
         "js/models/authentication.js",
         "js/models/app-version.js",
         "js/dictionary.js",
 
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
         {"src": "js/views/inline-loading.js", "mixin": "phoenix"},
+        "js/views/paginator.js",
+        "js/views/mixin/scroll-position.js"
       ],
       "static": [
         {"src": "static/index.html", "dest": "index.html", "root": true},
@@ -64,7 +69,30 @@
   },
 
   "templates": {
-
+    "js/views/shelf/shelf.js": [
+      "templates/breadcrumb-choice.handlebars",
+      "templates/shelf/shelf.handlebars",
+      "templates/shelf/shelf-empty.handlebars",
+      "templates/shelf/shelf-item.handlebars"
+    ],
+    "js/views/shelf/item-count.js": [
+      "templates/shelf/item-count.handlebars"
+    ],
+    "js/views/shelf/department-picker.js": [
+      "templates/shelf/department-list.handlebars",
+      "templates/shelf/department-list-empty.handlebars",
+      "templates/shelf/department-list-item.handlebars"
+    ],
+    "js/views/shelf/refinement-list.js": [
+      "templates/shelf/refinement-list.handlebars",
+      "templates/shelf/refinement-list-store.handlebars",
+      "templates/shelf/refinement-list-store-crumb.handlebars"
+    ],
+    "js/views/shelf/refinement-category.js": [
+      "templates/shelf/refinement-category.handlebars",
+      "templates/shelf/selected-refinement-items.handlebars",
+      "templates/shelf/refinement-category-item.handlebars"
+    ]
   },
 
   "mixins": [

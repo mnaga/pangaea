@@ -1,5 +1,5 @@
 <li{{#if outOfStock}} class="out-of-stock"{{/if}} data-id="{{id}}">
-  {{#if itemPage}}<a href="{{link itemPage}}"{{else}}<div{{/if}} class="shelf-item item-preview">
+  {{#if itemPage}}<a href="{{url itemPage}}"{{else}}<div{{/if}} class="shelf-item item-preview">
     <div class="item-image-container item-preview-image">
       <img src="{{thumbnail}}" alt="{{name}}">
       {{#if price}}

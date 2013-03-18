@@ -1,0 +1,6 @@
+{{#each sorts}}
+  <input type="radio" value="{{value}}" name="{{../cid}}-sort" id="{{../cid}}-{{value}}">
+  <label for="{{../cid}}-{{value}}">
+    {{i18n name}}
+  </label>
+{{/each}}

@@ -1,15 +1,8 @@
 <div class="corrected-search-container" style="display: none">
   Did you mean <a href="#" class="search-suggestion"></a>?
 </div>
-<div class="filters-applied" style="display: none;">
-  <div class="prev"></div>
-  <div class="carousel">
-    <span class="filters-label">{{i18n "Filters"}}</span>&nbsp;<span class="filters-value"></span>
-  </div>
-  <div class="next"></div>
-</div>
 {{view sort}}
-<ul class="shelf-list tap-list {{type}}"></ul>
+{{collection tag="ul" class="shelf-list tap-list {{type}}" expand-tokens=true}}
 {{view paginator}}
 {{view departmentList}}
 {{view refinementList}}
