@@ -1,0 +1,8 @@
+<em>{{i18n "In-Store Items Only"}}</em>
+{{#if selectedStore}}
+  {{#with selectedStore.attributes.address}}
+    <p>{{i18n "{{city}}, {{state}} {{zip}}" expand-tokens=true}}</p>
+  {{/with}}
+{{else}}
+  <p>{{i18n "Set your store"}}</p>
+{{/if}}

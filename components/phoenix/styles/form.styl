@@ -1,0 +1,46 @@
+.hidden-submit
+  position absolute
+  visibility hidden
+  width 1px
+  left -1px
+
+
+.button-container
+  display flex
+
+  > .button
+    display block
+    flex auto
+    width auto
+    margin-right $contentPadding
+
+    &:last-of-type
+      margin-right 0
+
+  &.spaced-group
+    > .button
+      flex none
+    > .group-spacer
+      flex auto
+
+  &.vertical
+    flex-flow column
+
+    > .button
+      // for android to have the button fit the width
+      width 100%
+      margin-right 0
+      margin-bottom $contentPadding
+
+      &:last-child
+        margin-bottom 0
+
+  text-align center
+
+
+.split-form
+  display flex
+
+  > .form-section
+  > .form-field
+    @extend .button-container > .button

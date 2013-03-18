@@ -1,0 +1,23 @@
+{
+  "build-targets": [
+    {"name": "Development", "path": "build/dev", "build-command": "jake clean && jake"},
+    {"name": "Test", "path": "build/test", "build-command": "jake clean && jake heroku-test"},
+    {"name": "Production", "path": "build/phoenix", "build-command": "jake clean && jake release"}
+  ],
+  "mocks": "dev/mocks/paths",
+  "servers": [
+    "mobile.walmart.com",
+    "mobile-e1.walmart.com",
+    "mobile-e2.walmart.com",
+    "mobile-e3.walmart.com",
+    "mobile-e4.walmart.com",
+    "mobile-e5.walmart.com",
+    "mobile-e6.walmart.com",
+    "mobile-e7.walmart.com",
+    "mobile-e8.walmart.com",
+    "mobile-e9.walmart.com",
+    "mobile-e10.walmart.com",
+    "mobile-e11.walmart.com",
+    "mobile-e12.walmart.com"
+  ]
+}

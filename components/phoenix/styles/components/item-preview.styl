@@ -1,0 +1,29 @@
+.item-preview
+  display flex
+  align-items center
+
+.item-preview-header
+  margin 10px
+
+.item-preview-image
+  display block
+  line-height 0
+  max-width 85px
+
+.item-preview-text
+  padding-left $contentPadding
+  flex auto
+
+  > h2
+    color inherit
+    padding 0
+    margin 5px 0
+
+  > .price
+    color $itemPriceColor
+    font-size 1.25em
+    font-weight bold
+
+  > .name
+    margin-top $contentPadding
+    color $headerItemColor

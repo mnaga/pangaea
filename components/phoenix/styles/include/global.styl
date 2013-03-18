@@ -1,0 +1,18 @@
+// Ensure that we define known platform value if they weren't passed in
+$android ?= false
+$ipad ?= false
+$iphone ?= false
+$web ?= false
+
+$native = not $web
+$ios = $iphone or $ipad
+
+support-for-ie = false
+// vendors is for stylus, vendor-prefixes is for nib
+vendors = vendor-prefixes = webkit
+
+// Disable the new flexbox implementation until we have better support
+flex-version = box
+
+$tapHighlightColor ?= rgba(0, 0, 0, .20)
+$loadingColor ?= #a8a8a8

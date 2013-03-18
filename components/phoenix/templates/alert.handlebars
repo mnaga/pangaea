@@ -1,0 +1,13 @@
+<header>{{i18n title}}</header>
+<div class="message">
+  {{#if message}}
+    {{{i18n message}}}
+  {{else}}
+    {{view view}}
+  {{/if}}
+</div>
+<div class="buttons button-container">
+  {{#each buttons}}
+  <button class="{{className}} button" data-index="{{@index}}">{{i18n title}}</button>
+  {{/each}}
+</div>

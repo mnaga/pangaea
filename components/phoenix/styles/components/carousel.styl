@@ -1,0 +1,76 @@
+carousel-button(path, direction, oppositeDirection)
+  display inline-block
+  position absolute
+  {direction} 0
+  top 0
+  bottom 0
+  z-index 1
+  padding 0 5px
+  padding-{oppositeDirection} $contentPadding
+  background center no-repeat
+  at-text()
+  cursor pointer
+  box-sizing content-box
+  width image-width(path) + 5px
+  background linear-gradient(oppositeDirection, rgba(255,255,255,0.1), rgba(255,255,255,1.0) 20%)
+  border-top-{direction}-radius inherit
+  border-bottom-{direction}-radius inherit
+
+  &:after
+    content ''
+    display inline-block
+    top 50%
+    {direction} 5px
+    image-element(path)
+    margin-top - (@height / 2)
+    position absolute
+
+.carousel
+  box-sizing content-box
+  position relative
+  overflow hidden
+  padding $contentPadding 2*$contentPadding
+
+  &.vertical-center-middle
+    // for vertically aligning the collection
+    height 100%
+
+  > .prev
+    carousel-button('images/carousel/left-arrow.png', left, right)
+
+  > .next
+    carousel-button('images/carousel/right-arrow.png', right, left)
+
+  > .collection
+    position absolute
+    transform translate3d(2*$contentPadding, 0, 0)
+    white-space nowrap
+    transition -webkit-transform 0.35s linear
+    line-height 0
+
+    &.dragging
+      transition none
+
+.carousel-item
+  display inline-block
+  box-sizing content-box
+
+.one-up-carousel > .carousel
+  padding $contentPadding
+
+  > .collection
+    transform translate3d(0, 0, 0)
+
+.native-scroll > .carousel
+  padding $contentPadding 0
+  overflow-scrolling touch
+  overflow-x scroll
+  overflow-y hidden
+  > .collection
+    fix-touch-scrolling()
+
+.native-scroll-disabled > .carousel,
+.native-scroll > .carousel
+  > .collection
+    transform translate3d(0, 0, 0)
+    white-space nowrap

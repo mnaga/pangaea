@@ -1,0 +1,23 @@
+{
+  "port": 80,
+  "securePort": 443,
+  "configTimeout": 60 * 60 * 1000, // 60 minutes
+
+  // Enable once full CORS support is enabled
+  // TODO : Figure out a better way of switching between these modes in mock-server
+  //"apiHost": "api-groceries.asda.com",
+  "apiEndpoint": "/api/",
+  "apikey": "7ucbnywa6thu5yrmdd39rz94",
+  "weightPrecision": 1,
+  "weightIncrement": 0.1,
+  "weightUnits": "kg",
+  "currencySymbol": "£",
+  "maxCrossSellItems": 5,
+  "customerServiceNumber": "0800 952 6060",
+  "homeRichRelevanceShelf": {
+    "categoryName": "Apples & Pears",
+    "departmentId": "1214921923758",
+    "aisleId": "1214921924623",
+    "categoryId": "1214921927404"
+  }
+}

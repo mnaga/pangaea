@@ -1,0 +1,16 @@
+<a class="carousel-item" href="{{link "ip/{{id}}" expand-tokens=true}}" data-id="{{id}}">
+  {{#if purchased}}
+    <div class="percentage">{{i18n "{{percentage}}% buy" expand-tokens=true}}</div>
+  {{/if}}
+
+  <div class="item-image-container">
+    <img src="{{itemImage}}" alt="">
+    {{#if price}}
+      <span class="price">{{price price}}</span>
+    {{/if}}
+  </div>
+  {{#if rating}}
+    <div class="rating">{{star-rating rating}}</div>
+  {{/if}}
+  <div class="item-name">{{name}}</div>
+</a>

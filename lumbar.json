@@ -1,0 +1,84 @@
+{
+  "modules": {
+    "base": {
+      "mixins": [
+        "thorax-dep-zepto",
+        "thorax",
+        "thorax-loading",
+        "thorax-mobile",
+
+        "core-lib",
+        "authentication",
+
+        "core-ui",
+        "web-core-ui",
+        "alert-error-handler",
+        "core-helpers"
+      ],
+      "scripts": [
+        "js/connection/signature.js",
+        "js/connection/error-handler.js",
+        "js/connection/data.js",
+        "js/connection/local-cache.js",
+
+        "js/paged-collection.js",
+
+        "js/init.js",
+        "js/models/authentication.js",
+        "js/models/app-version.js",
+        "js/dictionary.js",
+
+        {"src": "js/util/click-mask.js", "mixin": "phoenix"},
+        {"src": "js/views/inline-loading.js", "mixin": "phoenix"},
+      ],
+      "static": [
+        {"src": "static/index.html", "dest": "index.html", "root": true},
+        {"src": "static/favicon.ico", "dest": "favicon.ico", "root": true},
+        {"src": "static/touch-icon.png", "dest": "touch-icon.png", "root": true},
+      ]
+    },
+    "browse-search": {
+      "routes": {
+        "search/:searchTerms": "search"
+      },
+      "scripts": [
+        "js/models/item-helpers.js",
+        "js/models/shelf",
+        "js/collections/shelf.js",
+        "js/collections/manual-shelf.js",
+        "js/collections/manual-shelves.js",
+        "js/collections/refinement-categories.js",
+        "js/views/sort-selector.js",
+        "js/views/shelf/department-picker.js",
+        "js/views/shelf/refinement-list.js",
+        "js/views/shelf/item-count.js",
+        "js/views/shelf/shelf.js",
+        "js/views/shelf/refinement-category.js",
+        "js/views/shelf/featured-stories.js",
+        "js/routers/browse-search.js"
+      ],
+      "styles": [
+
+      ]
+    }
+  },
+
+  "templates": {
+
+  },
+
+  "mixins": [
+    "node_modules/phoenix-build/mixin",
+    "components/lumbar-loader",
+    "components/thorax",
+    "components/phoenix"
+  ],
+
+  // General application config
+  "platforms": [ "web" ],
+  "packages": {
+    "web": {
+      "platforms": [ "web" ]
+    }
+  }
+}

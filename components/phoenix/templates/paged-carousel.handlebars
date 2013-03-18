@@ -1,0 +1,8 @@
+{{template "carousel"}}
+{{#unless useNativeScroll}}
+  <div class="page-list">
+    {{#each pages}}
+      <div class="page-indicator"></div>
+    {{/each}}
+  </div>
+{{/unless}}

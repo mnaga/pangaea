@@ -1,0 +1,127 @@
+{
+  "platforms": [ "web" ],
+  "application": {
+    "name": "LoaderTest",
+    "module": "base"
+  },
+  "modules": {
+    "qunit": {
+      "topLevelName": "Loader",
+      "scripts": [
+        {"src": "lib/qunit.js"},
+        {"src": "lib/sinon.js"},
+        {"src": "lib/sinon-qunit.js"}
+      ],
+      "styles": [
+        "lib/qunit.css"
+      ]
+    },
+    "loader-standard": {
+      "topLevelName": "Loader",
+      "mixins": ["lumbar-loader"],
+      "scripts": [
+        "js/loader-test.js",
+        "js/standard.js",
+        "js/local-cache.js"
+      ]
+    },
+    "loader-local": {
+      "topLevelName": "Loader",
+      "mixins": ["lumbar-localstorage-loader"],
+      "scripts": [
+        "js/loader-test.js",
+        "js/local-storage.js",
+        "js/local-cache.js"
+      ]
+    },
+    "base": {
+      "scripts": [
+        {"src": "lib/zepto.js", "global": true},
+        {"src": "lib/underscore.js", "global": true},
+        {"src": "lib/backbone.js", "global": true},
+
+        "../lumbar-loader-backbone.js",
+        "js/base.js"
+      ],
+      "styles": [
+        "styles/base.css"
+      ],
+      "static": [
+        {"src": "static/index-local.html", "dest": "index-local.html", "root": true},
+        {"src": "static/index-standard.html", "dest": "index-standard.html", "root": true},
+        {"src": "static/index-standard.html", "dest": "index-nested.html"}
+      ]
+    },
+    "module1": {
+      "routes": {
+        "module1": "module1"
+      },
+      "scripts": [
+        "js/module1.js"
+      ],
+      "styles": [
+        "styles/module1.css"
+      ]
+    },
+    "module2": {
+      "routes": {
+        "module2": "module1",
+        "module22": "module1"
+      },
+      "scripts": [
+        "js/module1.js"
+      ]
+    },
+    "module3": {
+      "preload": ["module4"],
+      "scripts": [
+        "js/module1.js"
+      ]
+    },
+    "module4": {
+      "preload": ["module5"],
+      "scripts": [
+        "js/module1.js"
+      ]
+    },
+    "module5": {
+      "scripts": [
+        "js/module1.js"
+      ]
+    },
+    "module-depends-on-this": {
+      "scripts": [
+        "js/depends-on-this.js"
+      ]
+    },
+    "module-depends": {
+      "depends": ["module-depends-on-this"],
+      "routes": {
+        "has-depends": "hasDepends"
+      },
+      "scripts": [
+        "js/depends.js"
+      ]
+    },
+    "module-subsequent": {
+      "topLevelName": "ModuleDelay",
+      "scripts": [
+        "js/delay.js"
+      ]
+    },
+    "module-concurrent": {
+      "topLevelName": "ModuleDelay",
+      "scripts": [
+        "js/delay.js"
+      ]
+    },
+    "moduleNoRoute": {
+      "routes": {
+        "moduleNoRoute": "module1"
+      }
+    }
+  },
+  "mixins": [
+    "../"
+  ]
+}

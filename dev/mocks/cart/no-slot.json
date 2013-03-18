@@ -1,0 +1,9 @@
+{
+  "checkoutValidation": "false",
+  "statusCode": "500",
+  "statusMessage": "The API has errors related to the execution of the operation.Please refer to error codes and messages in the response for details",
+  "errors": [{
+    "errorCode": "ASDAGWS_NODELIVERYSLOT",
+    "errorMessage": "No slot is booked for the basket; please book a slot to confirm your basket"
+  }]
+}

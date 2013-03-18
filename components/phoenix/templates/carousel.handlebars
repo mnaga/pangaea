@@ -1,0 +1,9 @@
+<div class="carousel">
+  {{#if showButtons}}
+    <button class="prev" style="display: none">{{i18n 'Previous'}}</button>
+  {{/if}}
+  {{collection className="collection" tagName=containerTagName}}
+  {{#if showButtons}}
+    <button class="next" style="display: none">{{i18n 'Next'}}</button>
+  {{/if}}
+</div>

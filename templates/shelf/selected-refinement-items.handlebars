@@ -1,0 +1,14 @@
+{{#each selectedItems}}
+  <li class="refinement-item" data-model-cid="{{cid}}">
+    {{#with attributes}}
+      <button>
+        <div class="name">
+          {{name}}
+        </div>
+        <div class="count">
+          <span>{{count}}</span>
+        </div>
+      </button>
+    {{/with}}
+  </li>
+{{/each}}

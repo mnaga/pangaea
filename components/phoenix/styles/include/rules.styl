@@ -1,0 +1,30 @@
+gradient-rule(color=#ccc, edge=lighten(color, 15), height=1px)
+  &:before
+    gradient-border(color, edge, height)
+    margin-bottom $contentPadding
+
+gradient-border(centerColor, edgeColor, height=1px)
+  content ''
+  display block
+  height height
+  border none
+  background-image linear-gradient(left, edgeColor, centerColor 50%, edgeColor)
+
+gradient-border-bottom(centerColor=$gradientBorderColor, edgeColor=white, height=1px)
+  &:after
+    gradient-border(centerColor, edgeColor, height)
+
+gradient-border-top(centerColor, edgeColor, height=1px)
+  &:before
+    gradient-border(centerColor, edgeColor, height)
+
+gradient-border-fade(top, padding=$contentPadding)
+  offset = top ? 200% : 0%
+  background -webkit-radial-gradient(50% offset - 50, ellipse cover, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 60%)
+  if top
+    padding padding 0 0 0
+    margin (padding / 2) padding padding padding
+  else
+    padding 0 0 padding 0
+    margin padding padding (padding / 2) padding
+  border none

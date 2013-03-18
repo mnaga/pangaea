@@ -1,0 +1,37 @@
+// Clear elements that are likely to have tap handler delegates
+html
+body
+.layout
+[data-view-name]
+  clear-tap-highlight()
+
+if $ios
+  a,
+  input,
+  button,
+  select
+    set-tap-highlight()
+  .item,
+  .list-button,
+  .item-add,
+  .show-more
+    clear-tap-highlight()
+
+else if $web
+  a,
+  input,
+  button,
+  select,
+  [data-tappable='true']
+    set-tap-highlight()
+
+  :disabled
+    clear-tap-highlight()
+
+// TODO : Update everything else to use .tap-highlight and not .active
+// the buttons implement their own tap highlight style in the forms.styl
+.tap-highlight:not([disabled]):not(.disabled)
+  active-tap-highlight()
+
+.no-tap-highlight
+  clear-tap-highlight()

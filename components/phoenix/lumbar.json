@@ -1,0 +1,276 @@
+{
+  "name": "phoenix",
+
+  "mixins": {
+    "core-lib": {
+      "scripts": [
+        {"src": "js/lib/backbone.queryparams.js", "global": true},
+        {"src": "js/lib/backbone.historytracker.js", "global": true},
+        {"src": "js/lib/backbone.walmartmobile.js", "global": true},
+        {"src": "js/session-cache.js", "global": true},
+        {"src": "js/lib/dateformat.js", "global": true},
+        {"src": "js/lib/fastclick.js", "global": true},
+
+        {"src": "lumbar-loader-backbone.js", "mixin": "lumbar-loader", "platform": "web"},
+
+        {"package-config": true},
+        {"stylus-config": true},
+
+        {"src": "js/util/util.js"},
+        {"src": "js/util/cookie.js"},
+        {"src": "js/util/thorax.js"},
+
+        {"src": "js/init.js"},
+        {"src": "js/lumbar-loader-app.js"},
+        {"src": "js/min-height.js", "platform": "web"},
+
+        {"src": "js/anivia.js"},
+        {"src": "js/anivia-events.js"},
+        {"src": "js/connection.js"},
+        {"src": "js/connection/cors.js"},
+        {"src": "js/connection/error-tracking.js"},
+        {"src": "js/connection/load.js"},
+        {"src": "js/connection/local-cache.js"},
+        {"src": "js/connection/outofband.js"},
+        {"src": "js/connection/unload.js"},
+
+        {"src": "js/model.js"},
+        {"src": "js/validate.js"},
+        {"src": "js/collection.js"},
+        {"src": "js/paged-collection.js"},
+        {"src": "js/markup-helpers.js"},
+        {"src": "js/models/app-version.js"}
+      ],
+      "styles": [
+        "styles/reset.styl",
+        "styles/normalize.styl",
+        "styles/tap-highlight.styl"
+      ]
+    },
+
+    "core-ui": {
+      "scripts": [
+        "js/view.js",
+        "js/view-android-number.js",
+        "js/validate-thorax.js",
+        "js/views/error.js",
+        "js/helpers/i18n.js",
+        "js/routers/404.js",
+
+        "js/data-preview.js"
+      ],
+      "styles": [
+        "styles/layout.styl",
+        "styles/error.styl",
+        "styles/components/item-preview.styl"
+      ],
+      "aliases": {
+        "View": false
+      }
+    },
+
+    "core-helpers": {
+      "scripts": [
+        "js/helpers/helper-common.js",
+        "js/helpers/date.js",
+        "js/helpers/directions-link.js",
+        "js/helpers/star-rating.js",
+        "js/helpers/form.js",
+        "js/helpers/input.js",
+        "js/helpers/tel.js",
+        "js/helpers/link-wrapper.js",
+        "js/helpers/load-view.js",
+        "js/helpers/price.js"
+      ],
+      "styles": [
+        "styles/form.styl"
+      ]
+    },
+
+    "web-core-ui": {
+      "scripts": [
+        "js/views/dialog.js",
+        "js/views/alert.js",
+        "js/views/loading-indicator.js",
+        "js/views/inline-loading.js",
+        "js/helpers/paginator.js"
+      ],
+      "styles": [
+        "styles/components/dialog.styl",
+        "styles/components/loading-indicator.styl",
+        "styles/components/paginator.styl"
+      ]
+    },
+
+    "alert-error-handler": {
+      "scripts": [
+        "js/error-handlers/core.js",
+        "js/error-handlers/alert.js"
+      ]
+    },
+
+    "authentication": {
+      "scripts": [
+        {"src": "js/connection/authentication.js"},
+        {"src": "js/models/authentication.js"}
+      ]
+    },
+
+    "banner-carousel": {
+      "scripts": [
+        "js/views/carousel.js",
+        "js/views/paged-carousel.js",
+        "js/views/banner-carousel.js"
+      ],
+      "styles": [
+        "styles/components/carousel.styl",
+        "styles/components/paged-carousel.styl",
+        "styles/components/banner-carousel.styl"
+      ]
+    }
+  },
+
+  "modules": {
+    "loader": {
+      "topLevelName": "Loader",
+      "mixins": [
+        {"name": "lumbar-loader", "env": "dev"},
+        {"name": "lumbar-localstorage-loader", "env": "production"}
+      ],
+      "scripts": [
+        "js/load.js"
+      ],
+      "aliases": false
+    },
+    "remap": {
+      "topLevelName": "ReMap",
+      "scripts": [
+        "js/remap.js",
+        {"module-map": true}
+      ],
+      "aliases": false
+    },
+    "test": {
+      "topLevelName": "Test",
+      "mixins": [
+        {"name": "test", "container": "phoenix-build"},
+        "test-runner"
+      ],
+
+      "scripts": [
+        "test/init.js"
+      ],
+
+      "static": [
+        {"src": "test/images/500X500.jpeg", "dest": "images/500X500.jpeg", "platform": "web"},
+        {"src": "test/images/300X300.jpeg", "dest": "images/300X300.jpeg", "platform": "web"},
+        {"src": "test/images/portrait.jpeg", "dest": "images/portrait.jpeg", "platform": "web"},
+        {"src": "test/images/landscape.jpeg", "dest": "images/landscape.jpeg", "platform": "web"},
+        {"src": "test/images/500X500.jpeg", "dest": "images/500X500@2x.jpeg", "platform": "web"},
+        {"src": "test/images/300X300.jpeg", "dest": "images/300X300@2x.jpeg", "platform": "web"},
+        {"src": "test/images/portrait.jpeg", "dest": "images/portrait@2x.jpeg", "platform": "web"},
+        {"src": "test/images/landscape.jpeg", "dest": "images/landscape@2x.jpeg", "platform": "web"}
+      ],
+
+      "aliases": false
+    }
+  },
+
+  "templates": {
+    "root": "templates/",
+    "auto-include": {
+      "js/(?:views|helpers)/(.*)\\.js": [
+        "templates/$1.handlebars",
+        "templates/$1-item.handlebars",
+        "templates/$1-empty.handlebars"
+      ]
+    },
+    "precompile": {
+      "data": true,
+      "knownHelpersOnly": true,
+      "knownHelpers": [
+        // Thorax helpers
+        "layout-element",
+        "view",
+        "template",
+        "collection",
+        "empty",
+        "loading",
+        "url",
+
+        // Phoenix-Shared Helpers
+        "i18n",
+        "date",
+        "directions-link",
+        "star-rating",
+        "form",
+        "form-section",
+        "input",
+        "textarea",
+        "link-wrapper",
+        "load-view",
+        "paginator",
+        "price"
+      ]
+    },
+
+    "js/init.js": [
+      "templates/application.handlebars"
+    ],
+    "js/routers/404.js": [
+      "templates/error-not-found.handlebars"
+    ],
+
+    "js/views/loading-indicator.js": [
+      "templates/inline-loading-indicator.handlebars",
+    ],
+    "js/views/paginator.js": [
+      "templates/inline-loading-indicator.handlebars"
+    ],
+
+    "js/views/banner-carousel.js": [
+      "templates/carousel-banner.handlebars"
+    ],
+
+    "test/js/helpers/load-view.js": [
+      "test/templates/load-view-test.handlebars"
+    ]
+  },
+
+  "application": {
+    "name": "Phoenix",
+    "module": "base"
+  },
+  "scope": {
+    "aliases": {
+      // Allow application object to be minimized in other modules
+      "Phoenix": "Phoenix",
+      "View": "Phoenix.View",
+      "Handlebars": "Handlebars"
+    }
+  },
+  "test": {
+    "auto-include": "test/"
+  },
+  "styles": {
+    "pixelDensity": {
+      "android": [ 1, 1.5 ],
+      "iphone": [ 1, 2 ],
+      "web": [ 1, 2 ]
+    },
+    "urlSizeLimit": 1500,
+    "copyFiles": true,
+    "styleRoot": "static",
+    "useNib": true,
+    "config": [
+      "styles/config.json"
+    ],
+    "includes": [
+      "styles/include/index.styl"
+    ]
+  },
+
+  "moduleMap": "exports.moduleMap",
+  "loadPrefix": "/r/phoenix/",
+  "long-expires": "git rev-parse --short HEAD"
+}

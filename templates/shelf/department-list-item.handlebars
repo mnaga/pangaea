@@ -1,0 +1,14 @@
+<div>
+  <div class="filter-item department parent{{#if hasDepartments}} {{else}} empty{{/if}}" data-tree-parent="{{cid}}" data-browseToken="{{browseToken}}" data-id="{{id}}">
+    <button class="trigger" type="button"></button>
+    <div class="name"><p>{{name}}</p></div>
+    <div class="count"><p>{{totalCount}}</p></div>
+  </div>
+  {{#each departments}}
+    <div class="filter-item department child" data-tree-parent="{{../cid}}" style="display: none;" data-browseToken="{{browseToken}}" data-id="{{id}}">
+      <button class="trigger" type="button"></button>
+      <div class="name"><p>{{name}}</p></div>
+      <div class="count"><p>{{totalCount}}</p></div>
+    </div>
+  {{/each}}
+</div>

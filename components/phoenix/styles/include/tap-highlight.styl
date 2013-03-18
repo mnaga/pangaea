@@ -1,0 +1,42 @@
+set-tap-highlight()
+  tap-highlight-color rgba(128, 128, 128, 0.5)
+
+  if $web  // Full screen is only used in web.
+    // Disable tap highlight under android if we have a scrim.
+    .android > .flex &
+      tap-highlight-color rgba(255,255,255,0)
+
+clear-tap-highlight(androidSucks=false)
+  // Android MUST be transparent white. Anything else fails to blow away the focus box
+  if !androidSucks or $android
+    tap-highlight-color rgba(255,255,255,0)
+  else
+    .android &
+      tap-highlight-color rgba(255,255,255,0)
+
+active-tap-highlight(radius=false, isAfter=true)
+  position relative
+
+  if isAfter
+    &:after
+      content ""
+      display block
+      position absolute
+      top 0
+      right 0
+      width 100%
+      height 100%
+      background-color $tapHighlightColor
+      border-radius inherit
+
+  else
+    &:before
+      content ""
+      display block
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-color $tapHighlightColor
+      border-radius inherit

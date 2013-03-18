@@ -1,0 +1,12 @@
+<li class="empty-shelf error-page">
+  {{#if searchTerm}}
+    <h2>{{i18n "No Results for"}} <span class="term">&ldquo;{{searchTerm}}&rdquo;</span></h2>
+    <ul>
+      <li>{{i18n "Make sure words are spelled correctly"}}</li>
+      <li>{{i18n "Turn all filters and sorting off"}}</li>
+      <li>{{i18n "Try more generic keywords"}}</li>
+    </ul>
+  {{else}}
+    <h2>{{i18n emptyMessage}}</h2>
+  {{/if}}
+</li>

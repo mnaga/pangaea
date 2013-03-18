@@ -1,0 +1,37 @@
+body
+  // Allow page-level absolute positioned elements to size to the content rather than viewport
+  position relative
+
+.full-screen-view
+.full-screen
+  display flex
+  flex-flow column
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+
+  > .main-content
+    position relative
+    flex 1
+    overflow hidden
+
+.full-screen
+  min-height 0 !important // Overrides the javascript fill screen logic
+
+.full-screen-view
+  > .main-content
+    > [data-layout-cid] > [data-view-name]
+      position absolute
+      height 100%
+      width 100%
+
+    > footer
+      // Override any toggle style that may have been applied by hideFooter attributes
+      display none !important
+
+.no-chrome
+  > [data-view-name="header"]
+    display none
+

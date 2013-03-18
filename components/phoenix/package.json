@@ -1,0 +1,13 @@
+{
+  "name": "phoenix-shared",
+  "description": "Rise from the ashes of 3938 burning wickets. With common code.",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/walmartlabs/phoenix-shared.git"
+  },
+  "engines": {
+    "node": ">=0.4.5"
+  }
+}

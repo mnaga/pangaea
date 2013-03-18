@@ -1,0 +1,11 @@
+.page-list
+  box-sizing content-box
+  position relative // Required to keep the indicator above the content
+  text-align center
+  padding-right 2px
+  > .page-indicator
+    image-element('static/images/carousel/page-dot.png')
+    display inline-block
+    margin 0 3px
+    &.selected
+      image-element('static/images/carousel/page-dot-selected.png')

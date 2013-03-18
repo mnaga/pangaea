@@ -1,0 +1,16 @@
+<li{{#if outOfStock}} class="out-of-stock"{{/if}} data-id="{{id}}">
+  {{#if itemPage}}<a href="{{link itemPage}}"{{else}}<div{{/if}} class="shelf-item item-preview">
+    <div class="item-image-container item-preview-image">
+      <img src="{{thumbnail}}" alt="{{name}}">
+      {{#if price}}
+        <span class="price {{varyingPriceClass}}">{{price price}}</span>
+      {{/if}}
+    </div>
+    <div class="item-preview-text">
+      <div class="price">{{price this.price}}</div>
+      {{flag-list flags}}
+      <div class="name">{{{name}}}</div>
+      {{star-rating rating}}
+    </div>
+  {{#if itemPage}}</a>{{else}}</div>{{/if}}
+</li>

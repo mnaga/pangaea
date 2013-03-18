@@ -1,0 +1,20 @@
+{
+  "name": "asda-mweb",
+  "description": "TODO: Psuedo snarky comment",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/walmartlabs/asda-mweb.git"
+  },
+  "engines": {
+    "node": ">= 0.6"
+  },
+  "dependencies": {
+    "phoenix-build": "~1.0",
+    "jake": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jake test"
+  }
+}
