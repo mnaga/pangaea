@@ -40,6 +40,8 @@
         {"src": "static/index.html", "dest": "index.html", "root": true},
         {"src": "static/favicon.ico", "dest": "favicon.ico", "root": true},
         {"src": "static/touch-icon.png", "dest": "touch-icon.png", "root": true},
+        {"src": "static/images", "dest": "images"},
+        {"src": "static/fonts", "dest": "fonts"}
       ]
     },
     "browse-search": {
@@ -63,7 +65,7 @@
         "js/routers/browse-search.js"
       ],
       "styles": [
-
+        "styles/base.styl"
       ]
     }
   },
