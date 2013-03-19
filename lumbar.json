@@ -44,6 +44,8 @@
       ],
       "styles": [
         "styles/base.styl",
+        "styles/header.styl",
+        "styles/footer.styl"
       ],
       "static": [
         {"src": "static/index.html", "dest": "index.html", "root": true},

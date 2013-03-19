@@ -1,0 +1,60 @@
+[data-view-name="footer"]
+  clearfix()
+  padding: $vertical-content-spacing 0 $vertical-content-spacing columns(0.5)
+  color: #bbe3fe
+  background-color: #0e77bd
+  background-image: url(images/footer-feature.png), -webkit-radial-gradient(50% 10px, closest-side, #115686, #1978bb)
+  background-position: right bottom, 0 -10px
+  background-repeat: no-repeat, no-repeat
+  background-size:  28%, auto
+  position: relative
+
+  > .mailing-list
+    overflow: hidden
+    padding-bottom: 3em
+    padding-left: 10%
+
+    > .logo
+      width: 178px
+      float: left
+      margin-right: 22px
+
+    > form
+
+      > input
+        border: 1px solid #0a619b
+        box-shadow: 0px 1px 0px #3c91ca, 0px 1px 3px rgba(0,0,0,.7) inset
+        width: 39%
+        height: 42px
+        padding-top: 10px
+        margin-right: 1em
+        float: left
+
+      > .button
+        border-radius(4px)
+        line-height: 40px
+        height: 42px
+
+  > .links 
+    overflow: hidden
+
+    > ul
+      span-columns(2)
+
+      > li
+        line-height: 1.3em
+
+        > a
+          font-size: 0.8em
+          color: #bbe3fe
+
+    > .footer-feature
+      span-columns(4) 
+      omega()
+    
+      h4
+        text-align: center
+        font-size: 1.6em
+        font-weight: normal
+        color: #fff
+      
