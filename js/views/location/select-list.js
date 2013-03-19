@@ -82,7 +82,7 @@ Phoenix.Views.LocationSelectListView = LocationBase.extend({
   },
 
   onDestroyed: function() {
-    this.collection && this.collection.unbindCollection();
+    this.collection && this.collection.stopListening();
   }
 });
 

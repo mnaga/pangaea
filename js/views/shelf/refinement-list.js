@@ -79,7 +79,7 @@ var RefinementList = Phoenix.CollectionView.extend({
       this.clearStoreSelectorlink.off('click', this.clearStoreSelector);
       delete this.clearStoreSelectorlink;
     }
-    Phoenix.breadcrumb.clearOverride();
+    //Phoenix.breadcrumb.clearOverride();
   },
 
   onStoreSelected: function(store) {

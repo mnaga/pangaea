@@ -53,7 +53,7 @@ Phoenix.Views.LocationDetails = Phoenix.View.extend({
     if (Phoenix.locationCore.getLocationType() === Phoenix.locationCore.TYPE_PHARMACY) {
       this.model.setAsPharmacyStore();
     }
-    Phoenix.breadcrumb.updateCrumbs(this);
+    //Phoenix.breadcrumb.updateCrumbs(this);
   },
 
   isCurrentStore: function() {

@@ -51,18 +51,18 @@ var ShelfView = Phoenix.CollectionView.extend({
     mainView: function() {
       return this.departmentPicker;
     },
-    links: function(links) {
-      this.refinementsLink = links.add(_.bind(this.toggleRefinements, this), $(this.renderTemplate('breadcrumb-choice', {
-        type: 'filter-button full',
-        text: 'Filter'
-      })));
-      links.add(_.bind(this.toggleGridList, this), $(this.renderTemplate('breadcrumb-choice', {
-        type: 'show-grid icon full',
-        text: 'Grid'
-      })));
-
-      links.links.addClass('button-container choice-group list-grid-buttons');
-    }
+    //links: function(links) {
+    //  this.refinementsLink = links.add(_.bind(this.toggleRefinements, this), $(this.renderTemplate('breadcrumb-choice', {
+    //    type: 'filter-button full',
+    //    text: 'Filter'
+    //  })));
+    //  links.add(_.bind(this.toggleGridList, this), $(this.renderTemplate('breadcrumb-choice', {
+    //    type: 'show-grid icon full',
+    //    text: 'Grid'
+    //  })));
+//
+    //  links.links.addClass('button-container choice-group list-grid-buttons');
+    //}
   },
 
   isSearch: function() {
@@ -136,6 +136,7 @@ var ShelfView = Phoenix.CollectionView.extend({
     }
   },
   rendered: function() {
+    this.refinementsLink = this.$('.refinements-toggle');
     var phrase = this.collection && this.collection.correctedSearchPhrase;
     if (phrase) {
       this.$('.search-suggestion').text(phrase).attr('href', '/search/' + encodeURIComponent(phrase));

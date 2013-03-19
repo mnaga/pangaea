@@ -6,6 +6,7 @@
         "thorax",
         "thorax-loading",
         "thorax-mobile",
+        "thorax-helper-tags",
 
         "core-lib",
         "authentication",

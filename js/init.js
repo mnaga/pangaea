@@ -10,3 +10,15 @@ _.extend(Phoenix, {
     return 'http://' + Phoenix.config.wwwHost + '/msharbor' + url;
   }
 });
+
+$(function() {
+  Phoenix.footer = new Phoenix.View({
+    el: $('footer')
+  });
+  Phoenix.header = new Phoenix.View({
+    el: $('.header')
+  });
+});
+
+
+

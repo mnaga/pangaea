@@ -57,7 +57,7 @@ var RefinementCategoryView = Phoenix.CollectionView.extend({
     var container = btn.closest('.refinement-item'),
         cid = container.attr('data-model-cid');
     if (cid) {
-      var model = this.collection.getByCid(cid);
+      var model = this.collection.get(cid);
       model.select(!model.attributes.selected);
     }
   }

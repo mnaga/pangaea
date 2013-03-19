@@ -6,6 +6,7 @@ var splatParam    = /\*([\w\d]+)/g;
 var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
 var queryStrip = /(\?.*)$/;
 var fragmentStrip = /^([^\?]*)/;
+var ARRAY_VALUE_SPLIT = '|';
 Backbone.Router.arrayValueSplit = '|';
 
 var _getFragment = Backbone.History.prototype.getFragment;
