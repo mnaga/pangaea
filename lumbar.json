@@ -36,6 +36,9 @@
         "js/views/paginator.js",
         "js/views/mixin/scroll-position.js"
       ],
+      "styles": [
+        "styles/base.styl",
+      ],
       "static": [
         {"src": "static/index.html", "dest": "index.html", "root": true},
         {"src": "static/favicon.ico", "dest": "favicon.ico", "root": true},
@@ -65,7 +68,7 @@
         "js/routers/browse-search.js"
       ],
       "styles": [
-        "styles/base.styl"
+        "styles/search.styl"
       ]
     }
   },
@@ -110,5 +113,17 @@
     "web": {
       "platforms": [ "web" ]
     }
+  },
+
+  "styles": {
+    "pixelDensity": {
+      "web": [ 1, 2 ]
+    },
+    "useNib": true,
+    "styleRoot": "static",
+    "includes": [
+      "styles/global.styl"
+    ]
   }
 }
+

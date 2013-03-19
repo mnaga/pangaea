@@ -1,0 +1,27 @@
+.item-preview
+  display: block
+  position: relative
+  overflow: hidden
+  padding: 16px 12px
+
+  &::after
+    position: absolute
+    content: " "
+    right: 0
+    left: 0
+    top: 0
+    height: 1px
+    background: linear-gradient(left, white 0%, #e5e5e5 25%, #e5e5e5 75%, white 100%)
+    
+  .star
+    height: 15px;
+    width: 15px;
+    background-size: 15px;
+
+.item-preview-image
+  float: left
+  max-width: 100px
+
+.item-preview-text
+  padding: 0
+  margin-left: 112px
