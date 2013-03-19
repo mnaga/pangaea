@@ -1,4 +1,4 @@
-var RefinementCategoryView = Phoenix.View.extend({
+var RefinementCategoryView = Phoenix.CollectionView.extend({
   name: 'shelf/refinement-category',
   tagName: 'li',
   className: 'refinement-category',
@@ -9,7 +9,7 @@ var RefinementCategoryView = Phoenix.View.extend({
     collection: {
       'change:selected': function(model) {
         // update the selected set of items
-        this.$('.selected-refinement-items').html(this.template('shelf/selected-refinement-items', this.context()));
+        this.$('.selected-refinement-items').html(this.renderTemplate('shelf/selected-refinement-items', this.context()));
         this.$('li[data-model-cid="' + model.cid + '"]').toggleClass('selected', model.attributes.selected);
         this.refreshState();
       }
@@ -19,10 +19,8 @@ var RefinementCategoryView = Phoenix.View.extend({
     }
   },
   initialize: function(options) {
-    if (this.parent && !this.parent.getOpened(this.model.id)) {
-      this.$el.addClass('closed');
-    }
     this.setCollection(options.model.items);
+    this.$el.addClass('closed');
     this.refreshState();
   },
   context: function() {
@@ -51,9 +49,6 @@ var RefinementCategoryView = Phoenix.View.extend({
           }));
     }
     open = _.isBoolean(open) ? open : hasClosed;
-    if (this.parent) {
-      this.parent.setOpened(this.model.id, open);
-    }
     this.$el.toggleClass('closed', !open);
   },
   onItemClick: function(event) {
@@ -62,7 +57,7 @@ var RefinementCategoryView = Phoenix.View.extend({
     var container = btn.closest('.refinement-item'),
         cid = container.attr('data-model-cid');
     if (cid) {
-      var model = this.collection.getByCid(cid);
+      var model = this.collection.get(cid);
       model.select(!model.attributes.selected);
     }
   }

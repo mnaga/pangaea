@@ -1,0 +1,28 @@
+<div class="location-list-item special photo item" data-id="{{id}}">
+  <div class="details">
+    <p class="special-info {{#if photoService}}enabled{{/if}}">
+      <em class="pickup-time-title">{{i18n "Pickup Time"}}</em>
+      {{#if photoService}}
+        <span class="pickup-hour"></span>
+        <br/>
+        <span class="pickup-day"></span>
+      {{else}}
+        {{i18n "Photo service at this store is not available"}}
+      {{/if}}
+    </p>
+  </div>
+  {{#if photoService}}
+    <button type="button" style="display: none" class="special button secondary-button set-photo-store" data-id="{{id}}">{{i18n "Pick up here"}}</button>
+  {{/if}}
+
+  <h2>{{store-details store}}</h2>
+
+  <div class="location-contact">
+    <div class="address">{{{address this.address}}}</div>
+    <p class="phone"><a href="tel:{{phone}}">{{phone}}</a></p>
+  </div>
+  <p class="buttons">
+    <a class="button secondary-button" href="{{directions-link this.address}}">{{i18n "Directions"}}</a>
+    <span class="distance">{{distance}}mi</span>
+  </p>
+</div>

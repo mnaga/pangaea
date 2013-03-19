@@ -1,0 +1,16 @@
+{{input-tagged-text name="query"
+    value=queryLabel
+    type="search" autocorrect="off" class="search-text"
+    tag-class="search-clear-button" tag-text="Clear Search"
+    placeholder="City, State or ZIP"}}
+
+<div class="search-active-buttons button-container choice-group" style="display:none">
+  <button class="button secondary-button primary-button" type="submit">{{i18n "Go"}}</button>
+  <button class="button secondary-button add-button near-me" type="button">{{i18n "Near Me"}}</button>
+</div>
+{{#unless hideControls}}
+  <div class="location-view-buttons button-container choice-group">
+    <a href="{{listUrl}}" class="button secondary-button show-list icon"><span>{{i18n "List"}}</span></a>
+    <a href="{{mapUrl}}" class="button secondary-button show-map icon"><span>{{i18n "Map"}}</span></a>
+  </div>
+{{/unless}}

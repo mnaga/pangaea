@@ -230,7 +230,7 @@ var ShelfCollection = Phoenix.PagedCollection.extend({
       if (Phoenix.config.useBayesian) {
         departments = bayesianAvg(departments);
       }
-      this.departments.reset(departments, {parse: true});
+      this.departments.reset(this.departments.parseModels(departments));
 
       var refinements = this.filters.parse(data.refinementGroups);
       this.filters.remove(this.filters.models);
@@ -275,7 +275,7 @@ var ShelfCollection = Phoenix.PagedCollection.extend({
       this.filters.restoreSelState(refinements);
 
       // Now set the models into the collection and go live with them.
-      this.filters.add(refinements, {parse: true});
+      this.filters.add(this.filters.parseModels(refinements));
     }
 
     if (!this.hasPendingFetch()) {

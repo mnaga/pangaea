@@ -1,0 +1,25 @@
+<div class="location-list-item item">
+  <div class="details">
+    <p class="distance">{{distance}}mi</p>
+    <ul class="store-service-icons">
+    {{#each storeServices}}
+      <li class="{{slug}}"></li>
+    {{/each}}
+    </ul>
+  </div>
+
+  <h2>{{store-details store}}</h2>
+
+  <div class="location-contact">
+    <div class="address" data-id="{{this.id}}">{{{address this.address}}}</div>
+    <p class="phone"><a href="tel:{{phone}}">{{phone}}</a></p>
+  </div>
+
+  <div class="button-container spaced-group">
+    <a class="button secondary-button" href="{{directions-link this.address}}">{{i18n "Directions"}}</a>
+    <div class="group-spacer"></div>
+    {{#if localAdAvailable}}
+      <a class="button secondary-button" href="{{url "local-ad/{{this.id}}" expand-tokens=true}}">{{i18n "Local Ad"}}</a>
+    {{/if}}
+  </div>
+</div>

@@ -6,6 +6,7 @@
         "thorax",
         "thorax-loading",
         "thorax-mobile",
+        "thorax-helper-tags",
 
         "core-lib",
         "authentication",
@@ -25,10 +26,14 @@
 
         "js/init.js",
         "js/data.js",
+        "js/model.js",
+        "js/view.js",
         "js/web-data.js",
         "js/view-helpers.js",
         "js/models/authentication.js",
         "js/models/app-version.js",
+        "js/models/store.js",
+        "js/collections/stores.js",
         "js/dictionary.js",
 
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
@@ -48,6 +53,7 @@
       ]
     },
     "browse-search": {
+      "depends": ["locationCore"],
       "routes": {
         "search/:searchTerms": "search"
       },
@@ -60,15 +66,28 @@
         "js/collections/refinement-categories.js",
         "js/views/sort-selector.js",
         "js/views/shelf/department-picker.js",
+        "js/views/shelf/refinement-category.js",
         "js/views/shelf/refinement-list.js",
         "js/views/shelf/item-count.js",
         "js/views/shelf/shelf.js",
-        "js/views/shelf/refinement-category.js",
         "js/views/shelf/featured-stories.js",
         "js/routers/browse-search.js"
       ],
       "styles": [
         "styles/search.styl"
+      ]
+    },
+    "locationCore": {
+      "scripts": [
+        "js/location-util.js",
+        "js/views/location/base.js",
+        "js/views/location/map.js",
+        "js/views/location/map/abstract.js",
+        "js/views/location/map/bing.js",
+        "js/views/location/filter.js",
+        "js/views/location/list.js",
+        "js/views/location/select-list.js",
+        "js/views/location/search-bar.js"
       ]
     }
   },

@@ -1,0 +1,11 @@
+<div class="location-list-item item">
+  <p class="find-in-store-stock {{stockStatusClassName}}">{{stockStatus}}</p>
+  <h2>{{store-details store}}</h2>
+  <div class="location-contact">
+    <div class="address">{{{address store.address}}}</div>
+    <p class="phone"><a href="tel:{{store.phone}}">{{store.phone}}</a></p>
+  </div>
+  <a href="{{directions-link store.address}}" class="button secondary-button">{{i18n "Directions"}}</a>
+</div>
+
+

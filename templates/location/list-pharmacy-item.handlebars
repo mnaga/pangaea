@@ -1,0 +1,25 @@
+<div class="location-list-item special pharmacy item">
+  <div class="details">
+    <p class="special-info {{#if pharmacyService}}enabled{{/if}}">
+      {{#if pharmacyService}}
+        <em>{{i18n "Pharmacy Hours"}}</em>
+        {{#each hours}}
+          {{day}} {{time}}<br/>
+        {{/each}}
+      {{else}}
+        {{i18n "Pharmacy is not avilable at this location"}}
+      {{/if}}
+    </p>
+  </div>
+
+  <h2>{{store-details store}}</h2>
+
+  <div class="location-contact">
+    <div class="address">{{{address this.address}}}</div>
+    <p class="phone"><a href="tel:{{phone}}">{{phone}}</a></p>
+  </div>
+  <p class="buttons">
+    <a class="button secondary-button" href="{{directions-link this.address}}">{{i18n "Directions"}}</a>
+    <span class="distance">{{distance}}mi</span>
+  </p>
+</div>

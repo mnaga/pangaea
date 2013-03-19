@@ -14,7 +14,8 @@ var RefinementCategory = Phoenix.Model.extend({
     delete data.items;
 
     // build the collection of items in this category
-    this.items = new RefinementItems(items, {parse: true});
+    this.items = new RefinementItems();
+    this.items.reset(this.items.parseModels(this.items.parse(items)));
 
     return data;
   },

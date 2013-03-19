@@ -1,5 +1,6 @@
+
 /*global RefinementCategoryView*/
-var RefinementList = Phoenix.View.extend({
+var RefinementList = Phoenix.CollectionView.extend({
   name: 'shelf/refinement-list',
 
   events: {
@@ -18,7 +19,7 @@ var RefinementList = Phoenix.View.extend({
         this.trigger('applyStoreAndFilters', {filters: [{
           id: model.get('id'),
           browseToken: model.get('browseToken')
-        }]}, !checked);
+        }]});
       }
     },
     'destroyed': 'cleanupBreadcrumbOverride'
@@ -48,20 +49,9 @@ var RefinementList = Phoenix.View.extend({
       event.preventDefault();
       this.toggleSelectStore(false);
     }, this);
-    this.categoryViewState = {};
   },
 
-  getOpened: function(id) {
-    return this.categoryViewState[id];
-  },
-
-  setOpened:function(id, val) {
-    this.categoryViewState[id] = val;
-  },
-
-  renderItem: function(category) {
-    return new RefinementCategoryView({model: category, parent: this});
-  },
+  itemView: RefinementCategoryView,
 
   renderEmpty: function() {
     return '';
@@ -75,7 +65,7 @@ var RefinementList = Phoenix.View.extend({
       this.$('.main').hide();
       this.storeSelector.$el.show();
       // this breadcrumb override will not live inside this view so we can not use standard view event binding
-      this.clearStoreSelectorlink = Phoenix.breadcrumb.override(this.template('shelf/refinement-list-store-crumb')).find('a[href]');
+      this.clearStoreSelectorlink = Phoenix.breadcrumb.override(this.renderTemplate('shelf/refinement-list-store-crumb')).find('a[href]');
       this.clearStoreSelectorlink.on('click', this.clearStoreSelector);
     } else {
       this.$('.main').show();
@@ -89,7 +79,7 @@ var RefinementList = Phoenix.View.extend({
       this.clearStoreSelectorlink.off('click', this.clearStoreSelector);
       delete this.clearStoreSelectorlink;
     }
-    Phoenix.breadcrumb.clearOverride();
+    //Phoenix.breadcrumb.clearOverride();
   },
 
   onStoreSelected: function(store) {
@@ -99,7 +89,7 @@ var RefinementList = Phoenix.View.extend({
     this.storeSelector.$el.hide();
     var button = this.$('.select-refinement-store').toggleClass('checked', !!store);
     // we need the extra div because we have both the checked image and the arrow on the right
-    button.find('div').html(this.template('shelf/refinement-list-store', this));
+    button.find('div').html(this.renderTemplate('shelf/refinement-list-store', this));
     this.cleanupBreadcrumbOverride();
   },
 
@@ -120,18 +110,16 @@ var RefinementList = Phoenix.View.extend({
       filters: null,
       storeId: null
     });
-    this.categoryViewState = {};
-    this.trigger('reset');
+    this.trigger('hide');
   },
 
   onApply: function() {
     event.preventDefault();
-    this.categoryViewState = {};
     this.trigger('hide');
   },
 
   rendered: function() {
-    if (this.isSearch || !Phoenix.config.useInStoreOnlyInFacetedSearch) {
+    if (this.isSearch) {
       this.$('.select-refinement-store').hide();
     }
   }
