@@ -65,6 +65,7 @@ figure
   padding: 0
 
 .name
+  margin-bottom: 0
   color: #0e77bd
   font-size: 0.875em
 
@@ -79,11 +80,11 @@ figure
     top: -0.25em
 
 .star
-  height: 17px
-  width: 17px
+  height: 15px
+  width: 15px
   display: inline-block
   background-image: url("images/icons/Star-InActive.svg")
-  background-size: 17px
+  background-size: 15px
 
   &.rated
     background-image: url("images/icons/Star-Active.svg")
@@ -93,3 +94,19 @@ figure
   position: relative
   top: -1px
   font-size: 0.875em
+
+@media all and (min-width: 600px)
+  .name
+    font-size: 1.1875em
+
+  .price
+    font-size: 1.8em !important //TODO: Remove Phoenix styles if possible
+
+  .star
+    height: 17px
+    width: 17px
+    background-size: 17px;
+
+  .rating
+    top: -2px
+

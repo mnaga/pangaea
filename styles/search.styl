@@ -12,11 +12,10 @@
     top: 0
     height: 1px
     background: linear-gradient(left, white 0%, #e5e5e5 25%, #e5e5e5 75%, white 100%)
-    
-  .star
-    height: 15px;
-    width: 15px;
-    background-size: 15px;
+
+  .stars
+    position: relative
+    margin-left: 112px
 
 .item-preview-image
   float: left
@@ -25,3 +24,44 @@
 .item-preview-text
   padding: 0
   margin-left: 112px
+
+@media all and (min-width: 600px)
+  .item-preview
+    display: table
+    width: 100%;
+    padding: 20px
+
+    .stars
+      display: table-cell
+      width: 195px
+      min-height: 100px
+      padding: 8px 0 8px 20px
+      vertical-align: top
+
+      &::after
+        position: absolute
+        content: " "
+        left: 0
+        top: 0
+        bottom: 0
+        width: 1px
+        background: linear-gradient(top, white 0%, #e5e5e5 25%, #e5e5e5 75%, white 100%)
+  
+  .item-preview-image
+    float: none
+    display: table-cell
+    width: 100px;
+    vertical-align: top
+
+  .item-preview-text
+    display: table-cell
+    padding: 0 24px
+    vertical-align: top
+
+@media all and (min-width: 800px)
+  .search
+    float: left
+    margin-left: 25.53191489361702%
+    padding-left: 40px
+    border-left: 1px solid #ccc
+
