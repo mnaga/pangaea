@@ -1,10 +1,10 @@
+{{view sort}}
 {{#button "toggleGridList"}}Grid List Toggle{{/button}}
-{{#button "toggleRefinements" class="refinements-toggle"}}Refinements Toggle{{/button}}
 {{view departmentPicker}}
+{{#button "toggleRefinements" class="refinements-toggle"}}Refinements Toggle{{/button}}
 <div class="corrected-search-container" style="display: none">
   Did you mean <a href="#" class="search-suggestion"></a>?
 </div>
-{{view sort}}
 <ul class="shelf-list tap-list {{type}}"></ul>
 {{view paginator}}
 {{view departmentList}}
