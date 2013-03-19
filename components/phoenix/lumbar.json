@@ -42,9 +42,6 @@
         {"src": "js/models/app-version.js"}
       ],
       "styles": [
-        "styles/reset.styl",
-        "styles/normalize.styl",
-        "styles/tap-highlight.styl"
       ]
     },
 
@@ -60,9 +57,6 @@
         "js/data-preview.js"
       ],
       "styles": [
-        "styles/layout.styl",
-        "styles/error.styl",
-        "styles/components/item-preview.styl"
       ],
       "aliases": {
         "View": false
@@ -83,7 +77,7 @@
         "js/helpers/price.js"
       ],
       "styles": [
-        "styles/form.styl"
+
       ]
     },
 
@@ -96,9 +90,6 @@
         "js/helpers/paginator.js"
       ],
       "styles": [
-        "styles/components/dialog.styl",
-        "styles/components/loading-indicator.styl",
-        "styles/components/paginator.styl"
       ]
     },
 
@@ -123,9 +114,6 @@
         "js/views/banner-carousel.js"
       ],
       "styles": [
-        "styles/components/carousel.styl",
-        "styles/components/paged-carousel.styl",
-        "styles/components/banner-carousel.styl"
       ]
     }
   },
@@ -263,10 +251,10 @@
     "styleRoot": "static",
     "useNib": true,
     "config": [
-      "styles/config.json"
+
     ],
     "includes": [
-      "styles/include/index.styl"
+
     ]
   },
 
