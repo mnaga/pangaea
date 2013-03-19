@@ -1,0 +1,92 @@
+.button
+  display: inline-block
+  border: 1px solid #d1d1d1
+  background-image: linear-gradient(top, #fff 0%, #ededed 100%)
+  background-repeat: no-repeat
+  border-radius: 5px
+  box-shadow: 0px 1px 0px #efefef
+  height: 32px
+  line-height: 32px
+  font-size: 16px
+  color: #414141
+  padding: 0 13px
+  text-shadow: 0px 1px 0px #fff
+  font-weight: 600
+  cursor: pointer
+  white-space: nowrap
+  -webkit-tap-highlight-color:rgba(0,0,0,0)
+
+  &:active
+    border-color: transparent
+    background-image: linear-gradient(top, #e0e0e0 0%, #f7f7f7 100%)
+    box-shadow: 0px 1px 0px #a0a0a0 inset, 0px 2px 0px #cccccc inset, 0px -1px 0px #fff
+
+
+.button-primary
+  padding: 0 17px
+  border-color: #00558e
+  box-shadow: 0px 1px 0px #2ebfff inset, 0px 1px 0px rgba(0,0,0,.1)
+  background-image: linear-gradient(top, #2499ea 0%, #0e78be 100%)
+  color: white
+  text-shadow: 0px -1px 0px #155e90
+
+  &:active
+    border-color: #00558e
+    background-image: linear-gradient(top, #00558e 0%, #0166aa 100%)
+    border-bottom-color: #00558e
+    box-shadow: none
+
+.button
+  > .icon-arrow
+    display: inline-block
+    width: 20px
+    height: 20px
+    top: 5px
+    position: relative
+    margin-right: -6px
+    margin-left: 3px
+    image-background("images/icons/button-arrow.png")
+
+.checkout-button
+  background-image: linear-gradient(top, #fcb544 0%, #ffa413)
+  border: 1px solid #f09431
+  box-shadow: 0px 1px 0px #fdc875 inset
+  color: #fff
+  text-shadow: 0px -1px 0px #b17c27
+  display: inline-block
+  height: 51px
+  line-height: 50px
+  font-size: 24px
+  font-weight: bold
+  padding: 0 23px
+
+  &:active
+    background-image: linear-gradient(top, #ffa413 0%, #fcb544 100%)
+    box-shadow: none
+    border-color: #f09431
+
+  > .icon-arrow
+    image-background("images/icons/button-arrow-orange.png")
+    height: 25px
+    width: 25px
+    top: 6px
+    margin-left: 9px
+
+
+// Only extend styles below
+
+.rounded-button
+  border-radius: 20px
+
+.green-button
+  border-color: #65b748
+  background-image: linear-gradient(top, #98d184 0%, #65b748 100%)
+  box-shadow: 0px 1px 0px rgba(#fff, .35) inset
+  color: #fff
+  text-shadow: 0px -1px 0px #568047
+
+  &:active
+    border-color: #65b748
+    background-image: linear-gradient(top, #65b748 0%, #98d184 100%)
+    box-shadow: none
+
