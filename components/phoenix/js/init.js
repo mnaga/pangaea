@@ -5,9 +5,9 @@ Thorax.View.prototype._tapHighlightClassName = 'tap-highlight';
 Phoenix = module.exports = exports = new Thorax.LayoutView(_.extend({name: 'application', el: document.body}, exports));
 Backbone.history = new Backbone.History();
 
-Phoenix.Collections = {};
-Phoenix.Models = {};
-Phoenix.Views = {};
+Phoenix.Collections = Thorax.Collections;
+Phoenix.Models = Thorax.Models;
+Phoenix.Views = Thorax.Views;
 
 Thorax.setRootObject(Phoenix);
 

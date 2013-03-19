@@ -11,14 +11,11 @@ _.extend(Phoenix, {
   }
 });
 
-$(function() {
-  Phoenix.footer = new Phoenix.View({
-    el: $('footer')
-  });
-  Phoenix.header = new Phoenix.View({
-    el: $('.header')
-  });
+exports.on('init', function() {
+  exports.header = new exports.Views.header;
+  exports.header.render();
+  exports.footer = new exports.Views.footer;
+  exports.footer.render();
 });
-
 
 
