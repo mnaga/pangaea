@@ -70,6 +70,7 @@ var ShelfView = Phoenix.CollectionView.extend({
   },
 
   initialize: function() {
+    this.breadcrumb = new Phoenix.Views.breadcrumb;
     //can pass sort: false to this view to disable the sort selector from appearing
     if (this.sort !== false) {
       this.sort = new SortSelectorView({

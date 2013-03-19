@@ -1,0 +1,35 @@
+[data-view-name="breadcrumb"]
+  .sub-navigation
+    position: relative
+    z-index: 2
+    width: 100%
+    height: $sub-nav-height
+    padding: 0 ($gutter-width + 5)
+  
+    > .breadcrumbs
+      height: $sub-nav-height
+  
+    a
+      display: inline-block
+      margin: 0 1em 0 0
+      line-height: $segment-nav-height + 5px
+
+  .breadcrumbs
+    float: left
+  
+  .breadcrumb
+    display: inline-block
+    padding-right: 1.8em
+    text-transform: uppercase
+    font-weight: bold
+    font-size: .85em
+    background-image: url("images/pointer.svg")
+    background-repeat: no-repeat
+    background-size: auto 25%
+    background-position: 99% 47%
+  
+    &:last-child
+      background: none
+  
+  .icon-home:before
+    content: "\f015"
