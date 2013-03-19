@@ -2,7 +2,8 @@ var ShelfDepartmentPicker = Phoenix.View.extend({
   name: 'shelf/department-picker',
   tagName: 'button',
   attributes: {
-    type: 'button'
+    type: 'button',
+    class: 'button'
   },
   events: {
     'click': function() {

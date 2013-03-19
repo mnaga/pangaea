@@ -43,6 +43,7 @@
       ],
       "styles": [
         "styles/base.styl",
+        "styles/components/buttons.styl"
       ],
       "static": [
         {"src": "static/index.html", "dest": "index.html", "root": true},
