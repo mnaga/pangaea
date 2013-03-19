@@ -1,0 +1,5 @@
+<label for="{{cid}}_state">{{i18n "State"}}</label>
+<select id="{{cid}}_state" name="{{inputName}}">
+  <option value="">{{#isMweb}} {{i18n "State"}} {{else}} {{i18n "Select"}} {{/isMweb}}</option>
+  {{options-list value states}}
+</select>

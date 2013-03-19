@@ -1,0 +1,48 @@
+<h2>{{description}} #{{storeNumber}}</h2>
+
+<div class="location-container">
+  <a class="map" href="{{url mapLink}}">
+    <img src="{{mapUrl}}" alt="" />
+    <span class="mask"></span>
+  </a>
+  
+  
+  <div class="location-contact">
+    <div class="address">{{{address this.address}}}</div>
+    <p class="phone"><a href="tel:{{phone}}">{{phone}}</a></p>
+  </div>
+</div>
+
+<div class="button-container vertical">
+  <a class="button secondary-button" href="{{directions-link this.address}}">{{i18n "Get Directions"}}</a>
+  <a class="button primary-button set-store">{{i18n "Make My Store"}}</a>
+</div>
+<hr class="bottom">
+
+
+{{#each extendedStoreServices}}
+  <section class="store-service">
+    <header>
+      <h3>{{{name}}}</h3>
+      {{#if phone}}
+      <div class="phone">
+        <a href="tel:{{phone}}" class="phone">{{phone}}</a>
+      </div>
+      {{/if}}
+    </header>
+    {{^if hoursOfOperation.callStore}}
+      <dl class="hours">
+        {{#each hoursOfOperation}}
+          <dt>{{day}}</dt>
+          <dd>{{time}}</dd>
+        {{/each}}
+      </dl>
+    {{/if}}
+  </section>
+{{/each}}
+
+<ul class="service-list">
+  {{#each storeServices}}
+    <li>{{{name}}}</li>
+  {{/each}}
+</ul>

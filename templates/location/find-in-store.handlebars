@@ -1,0 +1,22 @@
+{{#template "item-preview-header"}}
+  <p class="upc">{{i18n "UPC: {{upc}}" expand-tokens=true}}</p>
+{{/template}}
+<p class="disclaimer"><strong>{{i18n "Please note:"}}</strong> {{i18n "Online and store prices may differ, and prices may vary from store to store."}}</p>
+
+{{#if length}}
+  <div class="find-result-count">
+    {{{i18n "We found {{totalCount}} stores that carry this item within {{distanceSearched}} miles of {{queryLabel}}. Stock status last updated on <strong>{{updatedDate}} at {{updatedTime}}</strong>." expand-tokens=true}}}
+  </div>
+{{/if}}
+
+{{location-collection class="collection location-list" loading-text="Checking availability..."}}
+
+<h3 class="search-again">{{i18n "Search another location:"}}</h3>
+
+{{view searchBar}}
+
+<div class="content">
+  <p>{{i18n "To locate this item, show this number to a department associate."}}</p>
+
+  <p class="upc">{{upc}}</p>
+</div>

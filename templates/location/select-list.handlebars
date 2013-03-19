@@ -1,0 +1,15 @@
+{{view searchBar}}
+
+<div class="popup"></div>
+{{#view-form class="stores store-locator-container content"}}
+  <div class="collection-container">
+    {{location-collection class="location-list" loading-text="Finding stores..."}}
+    <div class="collection-footer item" style="display: none">
+      <button class="show-more" type="button">{{i18n "Show More"}}</button>
+    </div>
+  </div>
+
+  <div class="button-group" style="display: none">
+    <button class="button primary-button">{{i18n "Continue"}}
+  </div>
+{{/view-form}}
