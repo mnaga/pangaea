@@ -94,7 +94,6 @@
 
   "templates": {
     "js/views/shelf/shelf.js": [
-      "templates/breadcrumb-choice.handlebars",
       "templates/shelf/shelf.handlebars",
       "templates/shelf/shelf-empty.handlebars",
       "templates/shelf/shelf-item.handlebars"

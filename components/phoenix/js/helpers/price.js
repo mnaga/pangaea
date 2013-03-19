@@ -1,6 +1,6 @@
 /*global View, SafeString */
 
-Handlebars.registerHelper('price', function(price) {
+function priceHelper (price) {
   var symbol = Phoenix.config.currencySymbol,
       prices;
   if (price || price === 0) {
@@ -31,4 +31,8 @@ Handlebars.registerHelper('price', function(price) {
     return new SafeString(prices[0]);
   }
   return '';
-});
+}
+
+Phoenix.View.price = priceHelper;
+
+Handlebars.registerHelper('price', priceHelper);

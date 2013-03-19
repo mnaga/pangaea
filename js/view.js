@@ -176,8 +176,7 @@ _.extend(Thorax.View.prototype, {
 });
 
 
-var View = exports.View = Thorax.View,
-    CollectionView = exports.CollectionView = Thorax.CollectionView.extend({
+var CollectionView = exports.CollectionView = Thorax.CollectionView.extend({
       _collectionSelector: '.collection'
     });
 
