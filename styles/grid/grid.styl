@@ -1,0 +1,155 @@
+// ---------------------------------------------------------------------------
+// Container
+
+// Set the width of a container
+//
+//  $columns  : The number of columns in the Grid Layout.
+
+set-container-width(columns = $total-columns, style = $container-style)
+  // width = container-outer-width(columns)
+  width: container-outer-width(columns)
+  // if style == 'static'
+  //   if-rem('width', width)
+  // else
+  //   if style == 'fluid'
+  //     if-rem('width', width) if unit(width) == '%'
+  //   else
+  //     if-rem('max-width', width)
+
+
+// Set the outer grid-containing element(s).
+//
+//  $columns  : The number of columns in the container.
+apply-container(columns = $total-columns)
+  pie-clearfix()
+  set-container-width($columns)
+  padding-left: $grid-padding
+  padding-right: $grid-padding
+  margin-left: auto
+  margin-right: auto
+
+
+// Set one or more layouts on a grid-containing element at any number of media-query breakpoints.
+//
+// $media-layout-1        : [default:$total-columns] A list of values including -
+//                        : One unitless number (representing columns in a layout)
+//                        : Two optional lengths (representing min and max-width media-query breakpoints).
+// $media-layout-2 ...-10 : [optional] Same as $media-layout-1
+container()
+  apply-container()
+
+// ---------------------------------------------------------------------------
+// Columns
+
+// Create a grid element spanning any number of 'columns' in a grid 'context'.
+// $columns : The number of columns to span.
+// $context : [optional] The context (columns spanned by parent).
+//          : Context is required on any nested elements.
+//          : Context MUST NOT be declared on a root element.
+// $padding : [optional] Padding applied to the inside of individual grid columns.
+//          : Padding is only output if one or two values are specified (e.g. 1em or 10px 20px)
+//          : Padding values are applied only on the horizontal axis in from-to order
+// $from    : The start direction of your layout (e.g. 'left' for ltr languages)
+// $style   : The container style to use.
+span-columns(_columns, context = $total-columns, padding = false, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  to = opposite-position(from)
+  pos = _columns[1]
+  cols = _columns[0]
+  pad-from = ($style == 'static' ? 0 * $gutter-width : relative-width(0 * $gutter-width, context))
+  pad-to = ($style == 'static' ? 0 * $gutter-width : relative-width(0 * $gutter-width, context))
+
+  if padding != false
+    pad-from = nth(padding, 1)
+
+    if length(padding) > 1
+      pad-to = nth(padding, 2)
+    else
+      pad-to = pad-from
+
+    pad-from = (style == 'static' ? pad-from : relative-width(pad-from, context))
+    pad-to   = (style == 'static' ? pad-to : relative-width(pad-to, context))
+
+    padding-{from}: pad-from
+    padding-{to}: pad-to
+
+  width: columns(cols, context, style)
+
+  if pos == omega
+    omega(from)
+  else
+    float: from
+    margin-{to}: gutter(context, style)
+
+
+// Apply to elements spanning the last column, to account for the page edge.
+// Only needed as an override. Normally 'omega' can just be called by `columns`.
+//
+// $from    : The start-direction for your document.
+omega(from = $from-direction)
+  from = unquote(from)
+  to   = opposite-position(from)
+
+  float: $omega-float
+  margin-{to}: 0
+
+// Shortcut to apply omega to a specific subset of elements.
+//
+// $n         : [first | only | last | <equation>]
+// $selector  : [child | last-child | of-type | last-of-type ]
+// $from      : The start-direction for your document.
+nth-omega(n = 'last', selector = 'child', from = $from-direction)
+  from = unquote(from)
+
+  if (n == 'last') or (n =='first') or (n =='only')
+    &:{n}-{selector}
+      omega(from)
+  else
+    &:nth-{selector}({n})
+      omega(from)
+
+// ---------------------------------------------------------------------------
+// Resets
+
+// Reset a '+columns' grid element to default block behavior
+//
+// $from  : The start direction of your layout (e.g. 'left' for ltr languages)
+reset-columns(from = $from-direction)
+  from = unquote(from)
+  to   = opposite-position(from)
+
+  float: none
+  width: auto
+  margin-{to}: auto
+
+// Apply to elements previously set as omega.
+// This will return floats and margins back to non-omega settigns.
+//
+// $context : [optional] The context (columns spanned by parent).
+// $from    : The start-direction for your document.
+// $style   : The container style to use.
+remove-omega(context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  to   = opposite-position(ffrom)
+
+  float: from
+  margin-{to}: gutter(context, style)
+
+// Shortcut to apply remove-omega to a specific subset of elements.
+//
+// $n         : [first | only | last | <equation>]
+// $selector  : [child | last-child | of-type | last-of-type ]
+// $context   : [optional] The context (columns spanned by parent).
+// $from      : The start-direction for your document.
+// $style     : The container style to use.
+remove-nth-omega(n = last, selector = child, context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+
+  if (n == 'last') or (n =='first') or (n =='only')
+    &:{n}-{selector}
+      remove-omega(context, from, style)
+  else
+    &:nth-{selector}({n})
+      remove-omega(context, from, style)
+
+

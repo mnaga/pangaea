@@ -144,7 +144,11 @@
     "useNib": true,
     "styleRoot": "static",
     "includes": [
-      "styles/global.styl"
+      "styles/global.styl",
+      "styles/grid/settings.styl",
+      "styles/grid/units.styl",
+      "styles/grid/functions.styl",
+      "styles/grid/grid.styl"
     ]
   }
 }

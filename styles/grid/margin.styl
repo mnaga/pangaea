@@ -1,0 +1,63 @@
+// ---------------------------------------------------------------------------
+// Margin Mixins
+
+// Apply 'columns' margin before an element to push it along the grid.
+//
+// $columns : The number of columns to span.
+// $context : [optional] The context (columns spanned by parent).
+//          : Context is required on any nested elements.
+//          : Context MUST NOT be declared on a root element.
+// $from    : The start direction of your layout (e.g. 'left' for ltr languages)
+// $style   : The container style to use.
+pre(columns, context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  margin-{from}: space(columns, context, style)
+
+// 'push' is a synonymn for 'pre'
+push(columns, context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  pre(columns, context, from)
+
+
+// Apply negative 'columns' margin before an element to pull it along the grid.
+//
+// $columns : The number of columns to span.
+// $context : [optional] The context (columns spanned by parent).
+//          : Context is required on any nested elements.
+//          : Context MUST NOT be declared on a root element.
+// $from    : The start direction of your layout (e.g. 'left' for ltr languages)
+// $style   : The container style to use.
+pull(columns, context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  margin-{from}: 0 - space(columns, context, style)
+
+
+// Apply 'columns' margin after an element to contain it in a grid.
+//
+// $columns : The number of columns to span.
+// $context : [optional] The context (columns spanned by parent).
+//          : Context is required on any nested elements.
+//          : Context MUST NOT be declared on a root element.
+// $from    : The start direction of your layout (e.g. 'left' for ltr languages)
+// $style   : The container style to use.
+post(columns, context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  to = opposite-position(from)
+  margin-{to}: space(columns, context, style)
+
+// Apply 'columns' before and/or after an element to contain it on a grid.
+//
+// $pre     : The number of columns to add as margin before.
+// $post    : The number of columns to add as margin after.
+// $context : [optional] The context (columns spanned by parent).
+//          : Context is required on any nested elements.
+//          : Context MUST NOT be declared on a root element.
+// $from    : The start direction of your layout (e.g. 'left' for ltr languages)
+// $style   : The container style to use.
+squish(_pre = false, _post = false, context = $total-columns, from = $from-direction, style = $container-style)
+  from = unquote(from)
+  if _pre
+    pre(_pre, context, from, style)
+
+  if post
+    post(_post, context, from, style)
