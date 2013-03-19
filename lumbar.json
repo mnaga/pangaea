@@ -23,7 +23,8 @@
         "js/connection/local-cache.js",
 
         "js/paged-collection.js",
-
+        "js/views/header.js",
+        "js/views/footer.js",
         "js/init.js",
         "js/data.js",
         "js/model.js",
@@ -39,11 +40,13 @@
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
         {"src": "js/views/inline-loading.js", "mixin": "phoenix"},
         "js/views/paginator.js",
-        "js/views/mixin/scroll-position.js"
+        "js/views/mixin/scroll-position.js",
       ],
       "styles": [
+        "styles/components/buttons.styl",
         "styles/base.styl",
-        "styles/components/buttons.styl"
+        "styles/header.styl",
+        "styles/footer.styl"
       ],
       "static": [
         {"src": "static/index.html", "dest": "index.html", "root": true},

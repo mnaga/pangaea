@@ -1,12 +1,13 @@
-{{view sort}}
-{{#button "toggleGridList" class="grid-toggle button"}}Grid List Toggle{{/button}}
-{{view departmentPicker}}
-{{#button "toggleRefinements" class="refinements-toggle button"}}Filters{{/button}}
+<div>
+  {{#button "toggleGridList" class="grid-toggle button"}}Grid List Toggle{{/button}}
+  {{view departmentPicker}}
+  {{#button "toggleRefinements" class="refinements-toggle button"}}Filters{{/button}}
+  {{view departmentList}}
+  {{view refinementList}}
+</div>
 <div class="corrected-search-container" style="display: none">
   Did you mean <a href="#" class="search-suggestion"></a>?
 </div>
 <ul class="shelf-list tap-list {{type}}"></ul>
 {{view paginator}}
-{{view departmentList}}
-{{view refinementList}}
 {{view itemCount}}
