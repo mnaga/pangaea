@@ -1,11 +1,24 @@
 .shelf-department-picker, .refinements-toggle
-  border-radius: 0
-  margin: 0
-  font-size: 14px
-  border-right: 0
-  height: 44px
   width: 50%
+  height: 44px
   float: left
+  margin: 0
+  border-right: 0
+  border-bottom-color: #bbb
+  border-radius: 0
+  font-size: 14px
+  box-shadow: none
+
+  &::after
+    display: inline-block
+    position: relative
+    top: -1px
+    width: 10px
+    margin-left: 5px
+    content: '+'
+
+  &.open::after
+    content: '\2013'
 
 .shelf-department-picker
   border-left: 0

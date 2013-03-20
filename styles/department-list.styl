@@ -1,12 +1,21 @@
 [data-view-name="shelf/department-list"]
   clear: both
+  background: #eee
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.15)
 
   .filter-item
     position: relative
     padding: 0 12px
-    line-height: 48px
-    background: #FFF !important // Overwrite annoying abba zebra stripes
-    border-bottom: 1px solid #ccc
+    background: transparent !important // Overwrite annoying abba zebra stripes
+    
+    &::after
+      position: absolute
+      content: " "
+      right: 0
+      left: 0
+      bottom: 0
+      height: 1px
+      background: linear-gradient(left, #eee 0%, #d9d9d9 25%, #d9d9d9 75%, #eee 100%)
 
   .trigger
     display: none
@@ -25,3 +34,4 @@
     position: absolute
     top: 0
     right: 12px
+    color: $font-color
