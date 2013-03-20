@@ -1,6 +1,9 @@
 {{view breadcrumb}}
+<header class="subnav">
+  {{view gridToggle}}
+</header>
+
 <div>
-  {{#button "toggleGridList" class="grid-toggle button"}}Grid List Toggle{{/button}}
   {{view departmentPicker}}
   {{#button "toggleRefinements" class="refinements-toggle button"}}Filters{{/button}}
   {{view departmentList}}

@@ -1,6 +1,20 @@
+
+
 {{#each sorts}}
   <input type="radio" value="{{value}}" name="{{../cid}}-sort" id="{{../cid}}-{{value}}">
   <label for="{{../cid}}-{{value}}">
     {{i18n name}}
   </label>
 {{/each}}
+
+
+<!--
+<header class="search-results-header">
+    <ul class="search-results-header-filters">
+      <li>Show:</li>
+      <li><a class="active" href="#">All</a></li>
+      <li>Online</li>
+      <li>Instore</li>
+    </ul>
+  </header>
+-->

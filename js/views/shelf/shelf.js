@@ -70,6 +70,12 @@ var ShelfView = Phoenix.CollectionView.extend({
   },
 
   initialize: function() {
+    this.gridToggle = new Phoenix.Views['grid-toggle'];
+    this.listenTo(this.gridToggle, 'change:toggle', function(toggle) {
+      this.displayType = toggle;
+      this.toggleGridList();
+    });
+
     this.breadcrumb = new Phoenix.Views.breadcrumb;
     //can pass sort: false to this view to disable the sort selector from appearing
     if (this.sort !== false) {
