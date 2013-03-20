@@ -3,6 +3,7 @@ View.extend({
   tagName: 'ul',
   events: {
     'click li': function(event) {
+      event.preventDefault();
       this.activateToggle($(event.target).closest('li'));
     },
     ready: function() {

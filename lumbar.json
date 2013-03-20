@@ -83,6 +83,7 @@
       "styles": [
         "styles/search.styl",
         "styles/grid-toggle.styl",
+        "styles/sort-selector.styl",
         "styles/breadcrumb.styl"
       ]
     },

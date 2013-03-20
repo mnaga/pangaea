@@ -77,15 +77,15 @@ var ShelfView = Phoenix.CollectionView.extend({
     });
 
     this.breadcrumb = new Phoenix.Views.breadcrumb;
-    //can pass sort: false to this view to disable the sort selector from appearing
-    if (this.sort !== false) {
-      this.sort = new SortSelectorView({
-        model: this.collection
-      });
-      this.sort.bind('change:sort', function() {
-        this.isReset = true;
-      }, this);
-    }
+
+    this.sort = new SortSelectorView({
+      model: this.collection
+    });
+    this.listenTo(this.sort, 'change:sort', function(sort) {
+      this.isReset = true;
+      console.log('sort?',sort);
+      this.collection.applySort(sort);
+    });
 
     if (this.isSearch()) {
       this.departmentList = new ShelfDepartmentList();
@@ -155,9 +155,6 @@ var ShelfView = Phoenix.CollectionView.extend({
   },
   setCollection: function(collection, options) {
     Phoenix.View.prototype.setCollection.call(this, collection, options);
-    if (this.sort) {
-      this.sort.setModel(collection, options);
-    }
 
     this.refinementList.setCollection(collection.filters, options);
     this.paginator.setCollection(collection, options);
@@ -296,10 +293,6 @@ var ShelfView = Phoenix.CollectionView.extend({
 
   toggleControls: function() {
     var show = this.collection.size();
-    if (!show && this.collection.isPopulated() && this.sort) {
-      // We only hide
-      this.sort.hide();
-    }
 
     if (this.isSearch()) {
       this.departmentPicker.hide();
@@ -359,9 +352,6 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.$('.shelf-list'),
       $(Phoenix.footer.el)
     ];
-    if (this.sort) {
-      elements.push($(this.sort.el));
-    }
     var excluded = _.difference(['paginator', 'shelf-refinement-list', 'shelf-department-list', 'shelf-item-count'], excludes);
     elements = elements.concat(_.map(excluded, function(val) {
       return this.$('.' + val);

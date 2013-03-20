@@ -1,2 +1,16 @@
 [data-view-name="sort-selector"]
-  border: 1px solid #ccc
+  position: absolute
+  right: 0
+  left: 0
+
+  > li
+    cursor: pointer
+    float: left
+    padding-left: 28px
+    font-size: 26px
+    line-height: 84px
+    &:first-child
+      cursor: inherit
+
+  .active
+    color: #444444
