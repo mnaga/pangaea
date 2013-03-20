@@ -12,7 +12,7 @@ function formField(options, content) {
 }
 
 function inputNumber(options, form, scope) {
-  if (!exports.isDesktop() && _supportsInputNumber) {
+  if (!exports.isDesktop && _supportsInputNumber) {
     var isiOS = Bridge.nativeHost ? (Bridge.nativeHost === 'iphone' || Bridge.nativeHost === 'ipad') : Phoenix.Data.isIphone || Phoenix.Data.isIpad;
     // chrome and iOS like to format "number" fields with commas
     // pattern will still bring up the numeric keyboard
@@ -480,4 +480,8 @@ Handlebars.registerHelper('options-list', function(currentValue, options) {
   });
 
   return new SafeString(ret);
+});
+
+Handlebars.registerHelper('desktop', function(options) {
+  return exports.isDesktop ? options.fn(this) : options.inverse(this);
 });

@@ -1,5 +1,6 @@
 {{view breadcrumb}}
 <header class="subnav">
+  {{view sort}}
   {{view gridToggle}}
 </header>
 
@@ -12,6 +13,12 @@
 <div class="corrected-search-container" style="display: none">
   Did you mean <a href="#" class="search-suggestion"></a>?
 </div>
+
+{{#desktop}}
+  {{view clickPaginator}}
+{{/desktop}}
 <ul class="shelf-list tap-list {{type}}"></ul>
-{{view paginator}}
+{{^desktop}}
+  {{view paginator}}
+{{/desktop}}
 {{view itemCount}}

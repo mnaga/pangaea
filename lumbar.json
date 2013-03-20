@@ -23,6 +23,7 @@
         "js/connection/local-cache.js",
 
         "js/paged-collection.js",
+        "js/views/search-input.js",
         "js/views/header.js",
         "js/views/footer.js",
         "js/init.js",
@@ -46,6 +47,8 @@
         "styles/components/buttons.styl",
         "styles/base.styl",
         "styles/fontawesome.styl",
+        "styles/search-input.styl",
+        "styles/search.styl",
         "styles/header.styl",
         "styles/footer.styl"
       ],
@@ -78,11 +81,14 @@
         "js/views/shelf/featured-stories.js",
         "js/views/breadcrumb.js",
         "js/views/grid-toggle.js",
+        "js/views/click-paginator.js",
         "js/routers/browse-search.js"
       ],
       "styles": [
         "styles/search.styl",
         "styles/grid-toggle.styl",
+        "styles/sort-selector.styl",
+        "styles/click-paginator.styl",
         "styles/breadcrumb.styl"
       ]
     },
