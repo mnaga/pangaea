@@ -36,6 +36,22 @@ var ShelfView = Phoenix.CollectionView.extend({
     },
     'rendered:empty': function() {
       this.$(this._collectionSelector).addClass('empty');
+    },
+    'rendered:collection': function() {
+      Abba('zebra-stripes')
+        .control('no-stripes', /*{weight: 2},*/ function(){})
+        .variant('stripes', _.bind(function() {
+          this.$('[data-model-cid]').each(function(i) {
+            if (i % 2 === 0) {
+              $(this).css({backgroundColor: '#aaa'});
+            }
+          })
+        }, this))
+        .start();
+      this.$('[data-model-cid]').click(function(event) {
+        event.preventDefault();
+        Abba('zebra-stripes').complete();
+      });
     }
   },
   crumbs: {

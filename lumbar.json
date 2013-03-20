@@ -27,6 +27,7 @@
         "js/views/header.js",
         "js/views/footer.js",
         "js/init.js",
+        "js/abba.js",
         "js/data.js",
         "js/model.js",
         "js/view.js",
