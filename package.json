@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "phoenix-build": "~1.0",
-    "jake": "*"
+    "jake": "*",
+    "express": "~3",
+    "grunt-bg-shell": "*"
   },
   "scripts": {
     "test": "./node_modules/.bin/jake test"
