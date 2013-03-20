@@ -83,7 +83,6 @@ var ShelfView = Phoenix.CollectionView.extend({
     });
     this.listenTo(this.sort, 'change:sort', function(sort) {
       this.isReset = true;
-      console.log('sort?',sort);
       this.collection.applySort(sort);
     });
 
