@@ -27,6 +27,10 @@ new (Backbone.Router.extend({
       oneResultRedirect = false;
     }
 
+    if (searchTerm) {
+      Phoenix.header.searchInput.setSearchTerm(searchTerm);
+    }
+
     _renderShelf.call(this, {
       collectionClass: SearchCollection, // Will use SBD or SBDF calls
       searchTerm: searchTerm,

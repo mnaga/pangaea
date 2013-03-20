@@ -75,8 +75,10 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.displayType = toggle;
       this.toggleGridList();
     });
-
-    this.breadcrumb = new Phoenix.Views.breadcrumb;
+    
+    this.breadcrumb = new Phoenix.Views.breadcrumb({
+      searchTerm: this.searchTerm
+    });
 
     this.sort = new SortSelectorView({
       model: this.collection

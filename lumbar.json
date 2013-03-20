@@ -23,6 +23,7 @@
         "js/connection/local-cache.js",
 
         "js/paged-collection.js",
+        "js/views/search-input.js",
         "js/views/header.js",
         "js/views/footer.js",
         "js/init.js",
@@ -46,6 +47,8 @@
         "styles/components/buttons.styl",
         "styles/base.styl",
         "styles/fontawesome.styl",
+        "styles/search-input.styl",
+        "styles/search.styl",
         "styles/header.styl",
         "styles/footer.styl"
       ],
