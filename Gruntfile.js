@@ -33,6 +33,10 @@ module.exports = function(grunt) {
       _defaults: {
         bg: true
       },
+      ensureComponents: {
+        cmd: 'npm install --prefix components; mv components/node_modules/* ./components; rm -rf components/node_modules;',
+        bg: false
+      },
       mockData: {
         cmd: 'node mock-data/index.js'
       },
@@ -48,6 +52,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', [
+    'bgShell:ensureComponents',
     'thorax:inspector',
     'bgShell:mockData',
     'bgShell:phoenixWatch'
