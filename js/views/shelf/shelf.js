@@ -50,7 +50,7 @@ var ShelfView = Phoenix.CollectionView.extend({
     },
     mainView: function() {
       return this.departmentPicker;
-    },
+    }
     //links: function(links) {
     //  this.refinementsLink = links.add(_.bind(this.toggleRefinements, this), $(this.renderTemplate('breadcrumb-choice', {
     //    type: 'filter-button full',
@@ -133,6 +133,9 @@ var ShelfView = Phoenix.CollectionView.extend({
         this.toggleRefinements(false);
       },this);
     this.refinementList.on('applyStoreAndFilters', this.onApplyStoreAndFilters, this);
+
+    this.clickPaginator = new Phoenix.Views['click-paginator'];
+
 
     this.paginator = new Phoenix.Views.Paginator;
     this.paginator.bind('paginate', this.onPaginate, this);

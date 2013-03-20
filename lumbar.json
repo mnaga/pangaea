@@ -81,12 +81,14 @@
         "js/views/shelf/featured-stories.js",
         "js/views/breadcrumb.js",
         "js/views/grid-toggle.js",
+        "js/views/click-paginator.js",
         "js/routers/browse-search.js"
       ],
       "styles": [
         "styles/search.styl",
         "styles/grid-toggle.styl",
         "styles/sort-selector.styl",
+        "styles/click-paginator.styl",
         "styles/breadcrumb.styl"
       ]
     },
