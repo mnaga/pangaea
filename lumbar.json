@@ -30,6 +30,7 @@
         "js/data.js",
         "js/model.js",
         "js/view.js",
+        "js/analytics.js",
         "js/web-data.js",
         "js/view-helpers.js",
         "js/models/authentication.js",
