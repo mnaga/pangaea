@@ -134,8 +134,18 @@ var ShelfView = Phoenix.CollectionView.extend({
       },this);
     this.refinementList.on('applyStoreAndFilters', this.onApplyStoreAndFilters, this);
 
-    this.clickPaginator = new Phoenix.Views['click-paginator'];
-
+    this.clickPaginatorTop = new Phoenix.Views['click-paginator']({
+      searchTerm: this.searchTerm
+    });
+    this.clickPaginatorBottom = new Phoenix.Views['click-paginator']({
+      searchTerm: this.searchTerm
+    });
+    this.clickPaginatorBottom.on('change:page', function() {
+      this.clickPaginatorTop.render();
+    }, this);
+    this.clickPaginatorTop.on('change:page', function() {
+      this.clickPaginatorBottom.render();
+    }, this);
 
     this.paginator = new Phoenix.Views.Paginator;
     this.paginator.bind('paginate', this.onPaginate, this);
@@ -159,6 +169,9 @@ var ShelfView = Phoenix.CollectionView.extend({
   },
   setCollection: function(collection, options) {
     Phoenix.View.prototype.setCollection.call(this, collection, options);
+
+    this.clickPaginatorTop.setCollection(collection);
+    this.clickPaginatorBottom.setCollection(collection);
 
     this.refinementList.setCollection(collection.filters, options);
     this.paginator.setCollection(collection, options);

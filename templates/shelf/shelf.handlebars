@@ -15,10 +15,11 @@
 </div>
 
 {{#desktop}}
-  {{view clickPaginator}}
+  {{view clickPaginatorTop}}
 {{/desktop}}
 <ul class="shelf-list tap-list {{type}}"></ul>
-{{^desktop}}
+{{#desktop}}
+  {{view clickPaginatorBottom}}
+{{else}}
   {{view paginator}}
 {{/desktop}}
-{{view itemCount}}
