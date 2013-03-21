@@ -1,11 +1,8 @@
 [data-view-name="header"]
-  overflow: hidden
-  top: 0
-  left: 0
-  right: 0
-  z-index: 256
+  position: relative
   height: $header-height
   padding: 0 0 0 $gutter-width + 5
+  margin-bottom: 64px
   background-color: white
   background-image: linear-gradient(#fdfdfd 0%, #eaedf0 40%, white 100%)
   border-bottom: 1px solid #e6e6e6
@@ -85,4 +82,8 @@
   
     &[data-action="cart"] > span
       image-background("images/icons/TopNav-Cart.png")
+
+@media all and (min-width: 800px)
+  [data-view-name="header"]
+    margin: 0
   

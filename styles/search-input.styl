@@ -1,16 +1,20 @@
 [data-view-name="search-input"]
-  span-columns(3)
-  pre(1)
+  position: absolute
+  bottom: -65px
+  left: 0;
+  width: 100%;
+  margin: 0
+  padding: 12px;
   overflow: visible
-  margin-top: 23px
-  suffix(2)
-  post(2)
+  border-bottom: 1px solid #eee;
+  text-align: center;
   
   input[type="search"]
     width: 100%
+    margin: 0
     height: 41px
-    padding-left: 2em
-    padding-top: 9px
+    padding: 9px 2em 6px 2em
+    font-family: $font-family
     font-size: 1.2em
     font-weight: 300
     border-width: 1px
@@ -22,3 +26,22 @@
     background-size: image-width("images/icons/search.png") image-  height("images/icons/search.png"), 100% 100%
     background-position: 10px 50%, 0 0
     background-repeat: no-repeat  
+    appearance: none
+    // TODO Sometimes stylus forgets to prefix?
+    -webkit-appearance: none
+    -webkit-font-smoothing: antialiased
+    
+    color: $inputColor
+    &::-webkit-input-placeholder
+      color: #cfcfcf
+
+@media all and (min-width: 800px)
+  [data-view-name="search-input"]
+    position: static
+    span-columns(3)
+    pre(1)
+    padding: 0
+    margin-top: 23px
+    suffix(2)
+    post(2)
+    border: 0
