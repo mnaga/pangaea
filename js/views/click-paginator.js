@@ -46,9 +46,9 @@ View.extend({
     }
   },
   hide: function() {
-    this.$el.hide();
+    this.$el.addClass('hidden');
   },
   show: function() {
-    this.$el.show();
+    this.$el.removeClass('hidden');
   }
 });
