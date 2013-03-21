@@ -37,16 +37,13 @@ module.exports = function(grunt) {
         cmd: 'npm install --prefix components; mv components/node_modules/* ./components; rm -rf components/node_modules;',
         bg: false
       },
-      mockData: {
-        cmd: 'node mock-data/index.js'
-      },
       phoenixStart: {
         cmd: 'jake start',
-        bg: false
+        bg: true
       },
       phoenixWatch: {
         cmd: 'jake watch',
-        bg: false
+        bg: true
       }
     }
   });
@@ -54,12 +51,10 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'bgShell:ensureComponents',
     'thorax:inspector',
-    'bgShell:mockData',
     'bgShell:phoenixWatch'
   ]);
 
   grunt.registerTask('production', [
-    'bgShell:mockData',
     'bgShell:phoenixStart'
   ]);
 };
