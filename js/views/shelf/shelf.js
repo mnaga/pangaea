@@ -187,6 +187,12 @@ var ShelfView = Phoenix.CollectionView.extend({
   setCollection: function(collection, options) {
     Phoenix.View.prototype.setCollection.call(this, collection, options);
 
+    if (!exports.isDesktop) {
+      this.collection.once('load:end', function() {
+        this.paginator.show();
+      }, this);
+    }
+
     this.clickPaginatorTop.setCollection(collection);
     this.clickPaginatorBottom.setCollection(collection);
 

@@ -1,7 +1,7 @@
 $inlineSpinnerHeight = 32px
 $inlineSpinnerWidth = 32px
 .inline-spinner
-  margin 0 auto $contentPadding auto
+  margin 0 auto 10px auto
   width $inlineSpinnerWidth
   height $inlineSpinnerHeight
   position relative
@@ -47,12 +47,12 @@ $inlineSpinnerWidth = 32px
   justify-content center
   text-align center
   font-size 0.9em
-  color $loadingColor
+  color #ccc
 
   > .inline-spinner
     width 3em
     height 3em
-    margin-bottom $contentPadding
+    margin-bottom 10px
 
 //hide inline loading indicators if they are present
 //underneath a modal loading indicator
@@ -76,7 +76,7 @@ body.loading
     margin 0
     width 54px
     height @width
-    color $loadingColor
+    color #aaa
 
 /*
 spinner code base on spin.js with these settings:

@@ -48,6 +48,7 @@
       ],
       "styles": [
         "components/phoenix/styles/components/loading-indicator.styl",
+        "components/phoenix/styles/components/paginator.styl",
         "styles/components/buttons.styl",
         "styles/base.styl",
         "styles/fontawesome.styl",
