@@ -1,48 +1,54 @@
 [data-view-name="click-paginator"]
-  display: none
+  display: block
+  height: 100px
+  position: relative
+  border-top: 1px solid #cccccc
+  font-size: 14px;
+  font-weight: bold;
+  clear: both
 
   &.hidden
     display: none
 
-@media all and (min-width: 800px)
-  [data-view-name="click-paginator"]
+  .search-stats
+    color: #444444
+
+  > .search-results-count
     display: block
-    height: 100px
-    position: relative
-    border-top: 1px solid #cccccc
-    font-size: 14px;
-    font-weight: bold;
-    clear: both
+    margin: 14px 0
+    text-align: center
+    text-transform: uppercase
 
-    .search-stats
-      color: #444444
-
+  .pagination-controls
+    text-align: center
+  
+    > span.search-results-page
+      padding-right: 16px
+  
+    > .button
+      height: 36px
+      width: 34px
+  
+    > .page-previous
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+      margin-right: -4px
+      padding-top: 3px
+  
+    > .page-next
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
+      padding-top: 3px
+  
+@media all and (min-width: 600px)
+  [data-view-name="click-paginator"]
     > .search-results-count
-      padding-left: 34px
       position: absolute
-      top: 38px
-      left: 0
+      top: 40px
+      left: 32px
+      margin: 0
 
     .pagination-controls
       position: absolute
       right: 32px
       top: 30px
-    
-      > span.search-results-page
-        padding-right: 16px
-    
-      > .button
-        height: 36px
-        width: 34px
-    
-      > .page-previous
-        border-top-right-radius: 0
-        border-bottom-right-radius: 0
-        margin-right: -4px
-        padding-top: 3px
-    
-      > .page-next
-        border-top-left-radius: 0
-        border-bottom-left-radius: 0
-        padding-top: 3px
-    
