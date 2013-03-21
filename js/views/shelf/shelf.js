@@ -39,16 +39,16 @@ var ShelfView = Phoenix.CollectionView.extend({
     },
     'rendered:collection': function() {
       Abba('zebra-stripes')
-        .control('no-stripes', /*{weight: 2},*/ function(){})
+        .control('no-stripes', {weight: 20}, function(){})
         .variant('stripes', _.bind(function() {
-          this.$('[data-model-cid]').each(function(i) {
+          this.$('.shelf-list [data-model-cid]').each(function(i) {
             if (i % 2 === 0) {
               $(this).css({backgroundColor: '#aaa'});
             }
           })
         }, this))
         .start();
-      this.$('[data-model-cid]').click(function(event) {
+      this.$('.shelf-list [data-model-cid]').click(function(event) {
         event.preventDefault();
         Abba('zebra-stripes').complete();
       });
