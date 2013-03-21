@@ -50,7 +50,6 @@
         "styles/base.styl",
         "styles/fontawesome.styl",
         "styles/search-input.styl",
-        "styles/search.styl",
         "styles/header.styl",
         "styles/footer.styl"
       ],

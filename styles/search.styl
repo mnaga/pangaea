@@ -67,7 +67,7 @@
       width: 195px
       min-height: 100px
       padding: 8px 0 8px 20px
-      vertical-align: top
+      vertical-align: middle
 
       &::after
         position: absolute
@@ -82,19 +82,29 @@
     float: none
     display: table-cell
     width: 100px;
-    vertical-align: top
+    vertical-align: middle
 
   .item-preview-text
     display: table-cell
     padding: 0 24px
-    vertical-align: top
+    vertical-align: middle
 
 @media all and (min-width: 800px)
-  .search
+  .shelf-sidebar
     float: left
-    margin-left: 25.53191489361702%
-    padding-left: 20px
+    width: space(3)
+    border-top: 1px solid #eee
+
+  .shelf-primary
+    float: left
+    width: columns(9)
     border-left: 1px solid #ccc
+
+  .shelf-department-picker, .refinements-toggle
+    display: none;
+
+  .shelf-list
+    padding-left: 20px
 
   header.subnav
     height: 84px

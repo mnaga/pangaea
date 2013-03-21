@@ -4,22 +4,24 @@
   {{view gridToggle}}
 </header>
 
-<div>
+<div class="shelf-sidebar">
   {{view departmentPicker}}
   {{#button "toggleRefinements" class="refinements-toggle button"}}Filters{{/button}}
   {{view departmentList}}
   {{view refinementList}}
 </div>
-<div class="corrected-search-container" style="display: none">
-  Did you mean <a href="#" class="search-suggestion"></a>?
-</div>
+<div class="shelf-primary">
+  <div class="corrected-search-container" style="display: none">
+    Did you mean <a href="#" class="search-suggestion"></a>?
+  </div>
 
-{{#desktop}}
-  {{view clickPaginatorTop}}
-{{/desktop}}
-<ul class="shelf-list tap-list {{type}}"></ul>
-{{#desktop}}
-  {{view clickPaginatorBottom}}
-{{else}}
-  {{view paginator}}
-{{/desktop}}
+  {{#desktop}}
+    {{view clickPaginatorTop}}
+  {{/desktop}}
+  <ul class="shelf-list tap-list {{type}}"></ul>
+  {{#desktop}}
+    {{view clickPaginatorBottom}}
+  {{else}}
+    {{view paginator}}
+  {{/desktop}}
+</div>
