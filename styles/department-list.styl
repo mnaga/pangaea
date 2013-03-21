@@ -29,13 +29,15 @@
 
   .count
     position: absolute
-    top: 0
+    top: -3px
     right: 12px
     color: $font-color
 
 @media all and (min-width: 800px)
   [data-view-name="shelf/department-list"]
-    display: block !important // Should remove inline display: none
     margin: 12px
     background: none;
     box-shadow: none
+
+    .name
+      padding-left: 24px
