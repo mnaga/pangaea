@@ -15,9 +15,11 @@
     "jake": "*",
     "express": "~3",
     "grunt-bg-shell": "*",
-    "thorax-inspector": "0.2.4"
+    "thorax-inspector": "0.2.4",
+    "grunt": "~0.4",
+    "grunt-cli": "0.1.6"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jake test"
+    "start": "node ./node_modules/grunt-cli/bin/grunt production"
   }
 }
