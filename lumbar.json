@@ -47,6 +47,7 @@
         "js/views/mixin/scroll-position.js",
       ],
       "styles": [
+        "components/phoenix/styles/components/loading-indicator.styl",
         "styles/components/buttons.styl",
         "styles/base.styl",
         "styles/fontawesome.styl",
@@ -65,7 +66,8 @@
     "browse-search": {
       "depends": ["locationCore"],
       "routes": {
-        "search/:searchTerms": "search"
+        "": "search",
+        ":searchTerms": "search"
       },
       "scripts": [
         "js/models/item-helpers.js",

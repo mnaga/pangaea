@@ -16,6 +16,10 @@ new (Backbone.Router.extend({
   },
 
   search: function(searchTerm, query) {
+    if (!searchTerm) {
+      searchTerm = 'xbox';
+    }
+
     query || (query = {});
     var departmentId = query.department,
         filterIds = query.refinements,
@@ -115,7 +119,7 @@ function buildBrowseTokenUrl(options) {
       departmentId = options.departmentId;
 
   // Build url -> search/:searchTerms?department=foo&refinements=a|b|c
-  var url = 'search';
+  var url = '';
   if (searchTerm) { // should be a search term
     url += '/' + encodeURIComponent(searchTerm);
   }
