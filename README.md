@@ -3,7 +3,7 @@ Pangaea Prototype
 
 Component Based Architecture
 ----------------------------
-Phoenix + Thorax + Lumbar Loader + custom components
+npm for exisiting open source components. Private npm for future internal components.
 
 Responsive Design
 -----------------
@@ -16,6 +16,11 @@ Platform Design
 
 Flexible Build Tools with Grunt
 -------------------------------
+Leveerages existing and future developer ecosystem. Choice of sass, stylus, coffeescript, build tools, watcher tools etc. Lumbar, Thorax already have Grunt plugins.
+
+Realtime Development
+--------------------
+LiveReload + Thorax inspector FTW.
 
 Analytics
 ---------

@@ -60,6 +60,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('production', [
     'bgShell:mockData',
-    'phoenixStart'
+    'bgShell:phoenixStart'
   ]);
 };
