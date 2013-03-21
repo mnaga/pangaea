@@ -54,3 +54,24 @@ A/B Testing
     this.$('li').click(function(event) {
       Abba('zebra-stripes').complete();
     });
+
+i18n
+----
+We are happy with the existing implementation. Which is quite flexible:
+
+  {{i18n "Literal String"}}
+
+This can also read from a dictionary. The entries may contain tokens which can be specified:
+
+  {{i18n "dictionary_key" term=searchTerm}}
+
+`expand-tokens=true` can be specified to pass through the current template scope directly to the i18n string:
+
+  {{i18n "dictionary_key" expand-tokens=true}}
+
+In the above two examples the dictionary key may look like:
+
+  {
+    dictionary_key: 'Search for: {{term}}'
+  }
+
