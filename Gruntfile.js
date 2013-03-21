@@ -39,11 +39,11 @@ module.exports = function(grunt) {
       },
       phoenixStart: {
         cmd: 'jake start',
-        bg: true
+        bg: false
       },
       phoenixWatch: {
         cmd: 'jake watch',
-        bg: true
+        bg: false
       }
     }
   });
