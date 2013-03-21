@@ -90,6 +90,34 @@ img
   top: -1px
   font-size: 0.875em
 
+input, textarea, select
+  font-family: $font-family
+  font-size: 1em
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+textarea
+  appearance: none
+  // TODO Sometimes stylus forgets to prefix?
+  -webkit-appearance: none
+  -webkit-font-smoothing: antialiased
+  box-sizing: border-box
+  height: $input-height
+  margin: 0
+  padding: 6px 15px
+  color: $inputColor
+  border: 1px solid $input-border-color
+  border-top-color: darken($input-border-color, 25%)
+  border-radius: $input-border-radius
+  box-shadow: $input-inset-shadow
+  &::-webkit-input-placeholder
+    color: #cfcfcf
+
 @media all and (min-width: 600px)
   .name
     font-size: 1.1875em
