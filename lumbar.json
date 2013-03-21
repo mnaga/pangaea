@@ -17,6 +17,7 @@
         "core-helpers"
       ],
       "scripts": [
+        "js/fonthack.js",
         "js/connection/signature.js",
         "js/connection/error-handler.js",
         "js/connection/data.js",
