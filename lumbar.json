@@ -92,7 +92,8 @@
         "styles/sort-selector.styl",
         "styles/click-paginator.styl",
         "styles/breadcrumb.styl",
-        "styles/department-list.styl"
+        "styles/department-list.styl",
+        "styles/refinement-list.styl"
       ]
     },
     "locationCore": {
