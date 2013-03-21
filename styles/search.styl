@@ -56,6 +56,32 @@
   padding: 0
   margin-left: 112px
 
+.grid li
+  display: inline-block
+  width: 50%
+  text-align: center
+
+  .item-preview-image
+    float: none
+    max-width: 100%
+    margin: 0 auto
+
+  .price
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+
+  .name
+    display: none
+
+  .stars
+    display: none
+
+@media all and (min-width: 400px)
+  .grid li
+    width: 33%
+
 @media all and (min-width: 600px)
   .item-preview
     display: table
@@ -89,6 +115,10 @@
     padding: 0 24px
     vertical-align: middle
 
+  .grid
+    .item-preview, .stars, .item-preview-image, .item-preview-text
+      display: block
+
 @media all and (min-width: 800px)
   .shelf-sidebar
     float: left
@@ -111,3 +141,7 @@
     border-top: 1px solid #cccccc
     position: relative
     box-shadow: 0 7px 9px -5px rgba(0,0,0,0.2)
+
+@media all and (min-width: 960px)
+  .grid li
+    width: 25%
