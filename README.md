@@ -10,6 +10,8 @@ Responsive Design
 
 Platform Design
 ---------------
+Some of application functions with response design, but other parts are platform specific. For instance a different kind of paginator (infinite scroll / vs click based) is loaded on touch devices. Other views such as the footer aren't loaded at all on mobile.
+
 {{#desktop}}
 
 {{/desktop}}

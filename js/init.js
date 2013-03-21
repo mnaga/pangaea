@@ -14,8 +14,10 @@ _.extend(Phoenix, {
 exports.on('init', function() {
   exports.header = new exports.Views.header;
   exports.header.render();
-  exports.footer = new exports.Views.footer;
-  exports.footer.render();
+  if (exports.isDesktop) {
+    exports.footer = new exports.Views.footer;
+    exports.footer.render();
+  }
 });
 
 
