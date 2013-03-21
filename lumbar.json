@@ -163,6 +163,7 @@
     "styleRoot": "static",
     "includes": [
       "styles/global.styl",
+      "styles/helpers.styl",
       "styles/grid/settings.styl",
       "styles/grid/units.styl",
       "styles/grid/functions.styl",
