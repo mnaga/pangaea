@@ -38,6 +38,7 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.$(this._collectionSelector).addClass('empty');
     },
     'rendered:collection': function() {
+      overlayDyanmicPricing.call(this);
       Abba('zebra-stripes')
         .control('no-stripes', {weight: 20}, function(){})
         .variant('stripes', _.bind(function() {
@@ -404,3 +405,25 @@ var ShelfView = Phoenix.CollectionView.extend({
   }
 });
 
+var overlayDyanmicPricing = _.throttle(function () {
+  $.ajax({
+    url: 'http://delayed-data.herokuapp.com/prices.json?callback=?',
+    format: 'jsonp',
+    success: function(prices) {
+      this.$('[data-model-cid]').each(function() {
+        // random 500 so that a price won't always be selected
+        updatePrice($(this), prices[_.random(500)]);
+      });
+    }
+  })
+}, 1000);
+
+function updatePrice($el, price) {
+  if (price && !$el.html().match('From')) {
+    var bits = price.split('.');
+    if (bits[1].length > 2) {
+      bits[1] = bits[1] + '0';
+    }
+    $el.find('.price').html('$' + bits[0] + '.<span class="decimal">' + bits[1] + '</span>');
+  }
+}
