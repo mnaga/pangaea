@@ -115,7 +115,7 @@ function buildBrowseTokenUrl(options) {
       departmentId = options.departmentId;
 
   // Build url -> search/:searchTerms?department=foo&refinements=a|b|c
-  var url = 'search';
+  var url = '';
   if (searchTerm) { // should be a search term
     url += '/' + encodeURIComponent(searchTerm);
   }
