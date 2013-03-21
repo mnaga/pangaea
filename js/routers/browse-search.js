@@ -16,6 +16,10 @@ new (Backbone.Router.extend({
   },
 
   search: function(searchTerm, query) {
+    if (!searchTerm) {
+      searchTerm = 'xbox';
+    }
+
     query || (query = {});
     var departmentId = query.department,
         filterIds = query.refinements,
