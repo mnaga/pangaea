@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "phoenix-build": "~1.0",
-    "jake": "*"
+    "jake": "*",
+    "express": "~3",
+    "grunt-bg-shell": "*",
+    "thorax-inspector": "0.2.4"
   },
   "scripts": {
     "test": "./node_modules/.bin/jake test"
