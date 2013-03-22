@@ -1,4 +1,12 @@
 {
+  "mixins": [
+    "node_modules/phoenix-build/mixin",
+    "components/lumbar-loader",
+    "components/thorax",
+    "components/phoenix",
+    "components/location-core"
+  ],
+
   "modules": {
     "base": {
       "mixins": [
@@ -103,19 +111,6 @@
         "styles/department-list.styl",
         "styles/refinement-list.styl"
       ]
-    },
-    "locationCore": {
-      "scripts": [
-        "js/location-util.js",
-        "js/views/location/base.js",
-        "js/views/location/map.js",
-        "js/views/location/map/abstract.js",
-        "js/views/location/map/bing.js",
-        "js/views/location/filter.js",
-        "js/views/location/list.js",
-        "js/views/location/select-list.js",
-        "js/views/location/search-bar.js"
-      ]
     }
   },
 
@@ -148,13 +143,6 @@
       "templates/departments-subs.handlebars"
     ]
   },
-
-  "mixins": [
-    "node_modules/phoenix-build/mixin",
-    "components/lumbar-loader",
-    "components/thorax",
-    "components/phoenix"
-  ],
 
   // General application config
   "platforms": [ "web" ],

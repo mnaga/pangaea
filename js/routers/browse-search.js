@@ -65,6 +65,7 @@ function _shouldUseLastShelfCollection(options) {
 }
 
 function _renderShelf(options, callback) {
+  console.log('new shelf view');
   var CollectionClass = options.collectionClass,
       view = new ShelfView({
         curDepartment: options.curDepartment || {},

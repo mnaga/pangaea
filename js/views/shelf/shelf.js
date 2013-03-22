@@ -284,6 +284,14 @@ var ShelfView = Phoenix.CollectionView.extend({
         this.clickPaginatorBottom.show();
       }
 
+      /*
+      if (parseInt(collection.totalCount, 10) === 0) {
+        this.departmentPicker.hide();
+      } else {
+        this.departmentPicker.show();
+      }
+      */
+
     }, this);
   },
 
