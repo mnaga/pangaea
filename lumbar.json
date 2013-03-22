@@ -65,14 +65,13 @@
         ":searchTerms": "search"
       },
       "mixins": [
-        "shelf-data"
+        "shelf-data",
+        "shelf-departments",
+        "shelf-refinements"
       ],
       "scripts": [
         "js/views/paginator.js",
         "js/views/sort-selector.js",
-        "js/views/shelf/department-picker.js",
-        "js/views/shelf/refinement-category.js",
-        "js/views/shelf/refinement-list.js",
         "js/views/shelf/item-count.js",
         "js/views/shelf/shelf.js",
         "js/views/shelf/featured-stories.js",
@@ -86,9 +85,7 @@
         "styles/grid-toggle.styl",
         "styles/sort-selector.styl",
         "styles/click-paginator.styl",
-        "styles/breadcrumb.styl",
-        "styles/department-list.styl",
-        "styles/refinement-list.styl"
+        "styles/breadcrumb.styl"
       ]
     }
   },
@@ -98,24 +95,6 @@
       "templates/shelf/shelf.handlebars",
       "templates/shelf/shelf-empty.handlebars",
       "templates/shelf/shelf-item.handlebars"
-    ],
-    "js/views/shelf/item-count.js": [
-      "templates/shelf/item-count.handlebars"
-    ],
-    "js/views/shelf/department-picker.js": [
-      "templates/shelf/department-list.handlebars",
-      "templates/shelf/department-list-empty.handlebars",
-      "templates/shelf/department-list-item.handlebars"
-    ],
-    "js/views/shelf/refinement-list.js": [
-      "templates/shelf/refinement-list.handlebars",
-      "templates/shelf/refinement-list-store.handlebars",
-      "templates/shelf/refinement-list-store-crumb.handlebars"
-    ],
-    "js/views/shelf/refinement-category.js": [
-      "templates/shelf/refinement-category.handlebars",
-      "templates/shelf/selected-refinement-items.handlebars",
-      "templates/shelf/refinement-category-item.handlebars"
     ],
     "js/views/departments-global.js": [
       "templates/departments-global.handlebars",

@@ -10,6 +10,40 @@
         "js/collections/manual-shelves.js",
         "js/collections/refinement-categories.js"
       ]
+    },
+    "shelf-departments": {
+      "scripts": [
+        "js/views/shelf/department-picker.js"
+      ],
+      "styles": [
+        "styles/department-list.styl"
+      ]
+    },
+    "shelf-refinements": {
+      "scripts": [
+        "js/views/shelf/refinement-category.js",
+        "js/views/shelf/refinement-list.js"
+      ],
+      "styles": [
+        "styles/refinement-list.styl"
+      ]
     }
+  },
+  "templates": {
+    "js/views/shelf/refinement-list.js": [
+      "templates/shelf/refinement-list.handlebars",
+      "templates/shelf/refinement-list-store.handlebars",
+      "templates/shelf/refinement-list-store-crumb.handlebars"
+    ],
+    "js/views/shelf/refinement-category.js": [
+      "templates/shelf/refinement-category.handlebars",
+      "templates/shelf/selected-refinement-items.handlebars",
+      "templates/shelf/refinement-category-item.handlebars"
+    ],
+    "js/views/shelf/department-picker.js": [
+      "templates/shelf/department-list.handlebars",
+      "templates/shelf/department-list-empty.handlebars",
+      "templates/shelf/department-list-item.handlebars"
+    ]
   }
 }
