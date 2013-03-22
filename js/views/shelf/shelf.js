@@ -144,7 +144,7 @@ var ShelfView = Phoenix.CollectionView.extend({
         }
       },this);
     }
-    this.itemCount = new Phoenix.Views.ShelfItemCount;
+    //this.itemCount = new Phoenix.Views.ShelfItemCount;
 
     this.refinementList = new RefinementList({
       isSearch: this.isSearch()
@@ -357,7 +357,7 @@ var ShelfView = Phoenix.CollectionView.extend({
     if (this.isSearch()) {
       this.departmentPicker.hide();
     }
-    this.itemCount.setItemCount(this.collection.length, show ? this.collection.totalCount : 0);
+    //this.itemCount.setItemCount(this.collection.length, show ? this.collection.totalCount : 0);
   },
 
   onPaginate: function() {

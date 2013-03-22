@@ -72,9 +72,7 @@
       "scripts": [
         "js/views/paginator.js",
         "js/views/sort-selector.js",
-        "js/views/shelf/item-count.js",
         "js/views/shelf/shelf.js",
-        "js/views/shelf/featured-stories.js",
         "js/views/breadcrumb.js",
         "js/views/grid-toggle.js",
         "js/views/click-paginator.js",
