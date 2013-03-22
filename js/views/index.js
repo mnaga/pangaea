@@ -1,6 +1,6 @@
 /*global RefinementList, SortSelectorView, ShelfDepartmentList, ShelfDepartmentPicker, largeThumbnail, getFlags, outOfStock, buildFacetUrl */
 var ShelfView = Phoenix.CollectionView.extend({
-  name: 'shelf/shelf',
+  name: 'index',
   className: 'body',
   _collectionSelector: '.shelf-list',
   nonBlockingLoad: true,
