@@ -2,7 +2,7 @@ var INFINITE_SCROLL_LISTENER_INTERVAL = 250,
     //height in pixels before indicator is visible where pagination will be triggered 
     INFINITE_SCROLL_THRESHOLD_PADDING = 3500; //roughly the height 30 items on one shelf + header
 
-exports.Views.Paginator = exports.View.extend({
+Phoenix.Views.Paginator = Phoenix.View.extend({
   name: 'paginator',
   nonBlockingLoad: true,
   pagingPadding: INFINITE_SCROLL_THRESHOLD_PADDING,
@@ -65,7 +65,7 @@ exports.Views.Paginator = exports.View.extend({
   },
 
   //no render operations in paginator for collections
-  renderCollection: exports.View.prototype.render,
+  renderCollection: Phoenix.View.prototype.render,
   appendItem: function(){},
   html: function(html) {
     $(this.el).html(html);

@@ -36,8 +36,7 @@
         "js/views/footer.js",
         "js/zepto.menu-aim.js",
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
-        {"src": "js/views/inline-loading.js", "mixin": "phoenix"},
-        "js/views/paginator.js"
+        {"src": "js/views/inline-loading.js", "mixin": "phoenix"}
       ],
       "styles": [
         "components/phoenix/styles/components/loading-indicator.styl",
@@ -65,13 +64,11 @@
         "": "search",
         ":searchTerms": "search"
       },
+      "mixins": [
+        "shelf-data"
+      ],
       "scripts": [
-        "js/models/item-helpers.js",
-        "js/models/shelf",
-        "js/collections/shelf.js",
-        "js/collections/manual-shelf.js",
-        "js/collections/manual-shelves.js",
-        "js/collections/refinement-categories.js",
+        "js/views/paginator.js",
         "js/views/sort-selector.js",
         "js/views/shelf/department-picker.js",
         "js/views/shelf/refinement-category.js",
