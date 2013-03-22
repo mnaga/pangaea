@@ -276,7 +276,15 @@ var ShelfView = Phoenix.CollectionView.extend({
         // TODO pangea: no refinementsLink
         //self.refinementsLink.toggleClass('filtered', child.prefStore || child.curFilters.length);
       }
-    });
+      if (!parseInt(collection.totalCount, 10)) {
+        this.clickPaginatorTop.hide();
+        this.clickPaginatorBottom.hide();
+      } else {
+        this.clickPaginatorTop.show();
+        this.clickPaginatorBottom.show();
+      }
+
+    }, this);
   },
 
   onApplyStoreAndFilters: function(obj) {
