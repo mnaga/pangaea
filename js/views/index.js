@@ -338,7 +338,7 @@ var ShelfView = Phoenix.CollectionView.extend({
     }
     this.paginator.pagingPadding *= pagingScale;
 
-    this.$('.shelf-list').toggleClass('grid', this.displayType === 'grid');
+    this.$('.shelf-list').toggleClass('grid', this.displayType !== 'grid');
 
     var primaryClass = 'show-grid',
         secondaryClass = 'show-list';

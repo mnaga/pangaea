@@ -17,8 +17,8 @@
 
   .active
     z-index: 1
-    color: #414141
-    text-shadow: 0 1px 0 #fff
+    color: transparent
+    text-shadow: none
 
   > *
     position: absolute
@@ -26,10 +26,11 @@
     float: left
     height: 44px
     width: 48px
+    color: #414141
     font-size: 0
     line-height: 0
     text-align: center
-    color: transparent
+    text-shadow: 0 1px 0 #fff
 
   i
     font-size: 24px
@@ -46,6 +47,9 @@
     &:active
       background: none
       box-shadow: none
+
+    .active
+      color: #414141
 
     > *
       position: static
