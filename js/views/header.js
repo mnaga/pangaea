@@ -5,5 +5,8 @@ View.extend({
   },
   initialize: function() {
     this.searchInput = new Phoenix.Views['search-input'];
+  },
+  toggleSearch: function() {
+    Phoenix.trigger('toggle:search');
   }
 });
