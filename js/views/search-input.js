@@ -6,7 +6,8 @@ View.extend({
   },
   initialize: function() {
     Phoenix.on('toggle:search', function() {
-      console.log('toggled');
+      $('.search-input').toggleClass('active');
+      $('.header').toggleClass('expanded');
     });
   },
   submit: function(event) {
