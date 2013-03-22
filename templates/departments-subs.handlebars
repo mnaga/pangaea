@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="columns">
+    {{#each subs}}
+      <div class="sub-department">
+        <h2 class="sub-department-title">
+          {{this.name}}
+        </h2>
+        <ul>
+          {{#each this.entries}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  </div>
+</div>

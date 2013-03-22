@@ -1,0 +1,25 @@
+<h2>Your Cart</h2>
+{{#each cart.items}}
+  <div>
+    <img src="{{this.imageThumbnailUrl}}"/>
+  </div>
+  <div>
+    {{this.name}}
+    Num: {{this.quantity}}
+  </div>
+  <div>
+    {{this.price}}
+  </div>
+{{/each}}
+
+<div>
+ Subtotal: {{cart.subTotal}}
+</div>
+
+<div>
+  <a class="button checkout-button">
+    Check Out
+    <span class="icon-arrow">
+    </span>
+  </a>
+</div>

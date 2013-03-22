@@ -1,0 +1,8 @@
+<div class="departments">
+  <ul>
+    {{#each departments}}
+      <li data-department-id="{{this.id}}">{{this.name}}</li>
+    {{/each}}
+  </ul>
+</div>
+{{layout-element class="expanded"}}

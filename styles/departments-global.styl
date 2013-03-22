@@ -1,0 +1,59 @@
+$department-nav-height = 400px
+
+[data-view-name="departments-global"]
+  display: none
+  position: absolute
+  z-index: 1002
+  left: 0px
+  top: 52px
+
+  .wrapper
+    clearfix()
+
+  .departments
+    float: left
+    width: 250px
+    height: $department-nav-height
+    background-color: #FFF
+    box-shadow: 0px 1px 3px rgba(0,0,0,.7)
+    color: #1b79b7
+    ul
+      margin: 10px auto auto 15px
+      li
+        padding: 4px 10px 2px 10px
+        border-radius: 15px
+        cursor: pointer
+        color: #1b79b7
+        &:hover
+          background-color: #1b79b7
+          color: #FFF
+
+  .expanded
+    display: none
+    float: left
+    color: #1b79b7
+    .columns
+      height: $department-nav-height
+      padding: 10px 15px
+      -webkit-columns: 2
+      -webkit-column-width: 200px
+      background-color: #FFF
+      box-shadow: 0px 1px 3px rgba(0,0,0,.7)
+    h2
+      font-size: 1.2em
+
+  .sub-department
+    :last-child
+      margin-bottom: 10px
+    ul
+      margin-left: 4px
+      li
+        cursor: pointer
+        padding: 2px 10px 0px 14px
+        border-radius(15px)
+        &:hover
+          background-color: #1b79b7
+          color: #FFF
+
+  .sub-department-title
+    font-weight: bold

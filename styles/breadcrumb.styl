@@ -4,17 +4,17 @@
 @media all and (min-width: 800px)
   [data-view-name="breadcrumb"]
     display: block
-    
+
     .sub-navigation
       position: relative
       z-index: 2
       width: 100%
       height: $sub-nav-height
       padding: 0 ($gutter-width + 5)
-    
+
       > .breadcrumbs
         height: $sub-nav-height
-    
+
       a
         display: inline-block
         margin: 0 1em 0 0
@@ -22,7 +22,7 @@
 
     .breadcrumbs
       float: left
-    
+
     .breadcrumb
       display: inline-block
       padding-right: 1.8em
@@ -33,9 +33,15 @@
       background-repeat: no-repeat
       background-size: auto 25%
       background-position: 99% 47%
-    
+
       &:last-child
         background: none
-    
+
     .icon-home:before
       content: "\f015"
+
+    .departments
+      float: left
+
+      .breadcrumb
+        background-image:none

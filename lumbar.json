@@ -25,11 +25,14 @@
 
         "js/paged-collection.js",
         "js/views/search-input.js",
+        "js/views/cart-mini.js",
+        "js/views/departments-global.js",
         "js/views/header.js",
         "js/views/footer.js",
         "js/init.js",
         "js/abba.js",
         "js/data.js",
+        "js/zepto.menu-aim.js",
         "js/model.js",
         "js/view.js",
         "js/analytics.js",
@@ -51,6 +54,8 @@
         "components/phoenix/styles/components/paginator.styl",
         "styles/components/buttons.styl",
         "styles/base.styl",
+        "styles/cart-mini.styl",
+        "styles/departments-global.styl",
         "styles/fontawesome.styl",
         "styles/search-input.styl",
         "styles/header.styl",
@@ -137,6 +142,10 @@
       "templates/shelf/refinement-category.handlebars",
       "templates/shelf/selected-refinement-items.handlebars",
       "templates/shelf/refinement-category-item.handlebars"
+    ],
+    "js/views/departments-global.js": [
+      "templates/departments-global.handlebars",
+      "templates/departments-subs.handlebars"
     ]
   },
 
