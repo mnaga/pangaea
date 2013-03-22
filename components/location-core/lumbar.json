@@ -4,6 +4,8 @@
     "locationCore": {
       "scripts": [
         "js/location-util.js",
+        "js/models/store.js",
+        "js/collections/stores.js",
         "js/views/location/base.js",
         "js/views/location/map.js",
         "js/views/location/map/abstract.js",

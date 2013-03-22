@@ -5,7 +5,8 @@
     "components/thorax",
     "components/phoenix",
     "components/location-core",
-    "components/pangaea"
+    "components/pangaea",
+    "components/shelf"
   ],
 
   "modules": {
@@ -34,12 +35,9 @@
         "js/views/header.js",
         "js/views/footer.js",
         "js/zepto.menu-aim.js",
-        "js/models/store.js",
-        "js/collections/stores.js",
-
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
         {"src": "js/views/inline-loading.js", "mixin": "phoenix"},
-        "js/views/paginator.js",
+        "js/views/paginator.js"
       ],
       "styles": [
         "components/phoenix/styles/components/loading-indicator.styl",

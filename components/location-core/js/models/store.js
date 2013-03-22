@@ -1,5 +1,5 @@
 /*global LocalCache, Stores */
-var Store = exports.Models.Store = exports.Model.extend({
+var Store = Phoenix.Models.Store = Phoenix.Model.extend({
   previewClass: 'store',
   ttl: LocalCache.TTL.HOUR,
   url: function() {
@@ -26,7 +26,7 @@ var Store = exports.Models.Store = exports.Model.extend({
     response.hoursOfOperation = fixupHours(response.hoursOfOperation);
     response.storeServiceSlugs = [];
     _.each(response.storeServices, function(service) {
-      service.slug = exports.Util.dasherize(service.name);
+      service.slug = Phoenix.Util.dasherize(service.name);
       response.storeServiceSlugs.push(service.slug);
       service.hoursOfOperation = fixupHours(service.hoursOfOperation);
     });

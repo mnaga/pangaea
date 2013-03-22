@@ -3,8 +3,8 @@
 // should be initialized with:
 // a) lat + lng attributes
 // b) itemIds: possibly an array of item ids
-var Stores = exports.Collections.Stores = exports.PagedCollection.extend({
-  model: exports.Models.Store,
+var Stores = Phoenix.Collections.Stores = Phoenix.PagedCollection.extend({
+  model: Phoenix.Models.Store,
   ttl: LocalCache.TTL.DAY,
   v1: true,
   initialize: function(models, attributes) {
@@ -13,7 +13,7 @@ var Stores = exports.Collections.Stores = exports.PagedCollection.extend({
       lng: 0,
       radius: 50
     }));
-    exports.Collection.prototype.initialize.call(this, models);
+    Phoenix.Collection.prototype.initialize.call(this, models);
   },
   url: function() {
     if (this.itemIds) {
@@ -36,7 +36,7 @@ var Stores = exports.Collections.Stores = exports.PagedCollection.extend({
     return !this.noMorePages;
   },
   parse: function(data) {
-    var rtn = exports.Collection.prototype.parse.call(this, data);
+    var rtn = Phoenix.Collection.prototype.parse.call(this, data);
     // the data has not totalCount attribute
     if (rtn.length < this.pageSize) {
       this.noMorePages = true;
@@ -81,7 +81,7 @@ var Stores = exports.Collections.Stores = exports.PagedCollection.extend({
   if (cachedClosestStoreData.store) {
     // the model attributes were cached
     var attrs = cachedClosestStoreData.store;
-    cachedClosestStoreData.store = new exports.Models.Store(attrs);
+    cachedClosestStoreData.store = new Phoenix.Models.Store(attrs);
   }
 
   function _cacheClosestStore(coords, store) {
@@ -96,7 +96,7 @@ var Stores = exports.Collections.Stores = exports.PagedCollection.extend({
   Stores.closest = function(callback, failback, options) {
     Phoenix.getLocation(function(coords) {
       var cachedCoords = cachedClosestStoreData.coords;
-      if (!cachedCoords || !exports.Util.isWithinRange(cachedCoords, coords)) {
+      if (!cachedCoords || !Phoenix.Util.isWithinRange(cachedCoords, coords)) {
         // location is out of date, get new store data
         _getClosestStore(coords, function(store) {
           _cacheClosestStore(coords, store);
