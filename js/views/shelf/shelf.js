@@ -128,16 +128,20 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.departmentPicker.disable();
       this.departmentPicker.bind('show', function(){
         this.departmentList.show();
-        this.toggleRefinements(false);
-        _.invoke(this._elementsToToggle(['shelf-department-list']), 'hide');
+        if (!Phoenix.isDesktop) {
+          this.toggleRefinements(false);
+          _.invoke(this._elementsToToggle(['shelf-department-list']), 'hide');
+        }
       },this);
       this.departmentPicker.bind('hide', function(){
         this.departmentList.hide();
-        var excludes = ['shelf-department-list', 'shelf-refinement-list'];
-        if (this.collection.numOfPages() < 2) {
-          excludes.push('paginator');
+        if (!Phoenix.isDesktop) {
+          var excludes = ['shelf-department-list', 'shelf-refinement-list'];
+          if (this.collection.numOfPages() < 2) {
+            excludes.push('paginator');
+          }
+          _.invoke(this._elementsToToggle(excludes), 'show');
         }
-        _.invoke(this._elementsToToggle(excludes), 'show');
       },this);
     }
     this.itemCount = new Phoenix.Views.ShelfItemCount;
