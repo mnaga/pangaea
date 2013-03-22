@@ -161,7 +161,11 @@ var ShelfDepartmentList = Phoenix.CollectionView.extend({
     this.$('.department.all-departments').hide();
   },
   showAllDepartments: function() {
-    this.$('.department.all-departments').show();
+    // dumb hack to get this to work, selectedDept not set properly
+    // because we re-render vs update the shelf
+    if (!window.location.href.match(/department=/)) {
+      this.$('.department.all-departments').show();
+    }
   }
 });
 

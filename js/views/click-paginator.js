@@ -42,6 +42,7 @@ View.extend({
     if (this.collection) {
       this.totalCount = this.collection.totalCount;
       this.numOfPages = this.collection.numOfPages();
+      this.showButtons = this.numOfPages > 1;
       this.page = this.collection.page + 1;
     }
   },
