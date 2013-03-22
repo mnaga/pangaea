@@ -4,8 +4,9 @@ $department-nav-height = 400px
   display: none
   position: absolute
   z-index: 1002
-  left: 0px
-  top: 52px
+  left: 0
+  top: 0px
+  padding-top: 52px
 
   .wrapper
     clearfix()
@@ -35,7 +36,7 @@ $department-nav-height = 400px
     .columns
       height: $department-nav-height
       padding: 10px 15px
-      -webkit-columns: 2
+      -webkit-columns: 4
       -webkit-column-width: 200px
       background-color: #FFF
       box-shadow: 0px 1px 3px rgba(0,0,0,.7)
@@ -43,6 +44,7 @@ $department-nav-height = 400px
       font-size: 1.2em
 
   .sub-department
+    display:inline-block
     :last-child
       margin-bottom: 10px
     ul
