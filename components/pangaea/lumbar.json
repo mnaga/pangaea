@@ -1,6 +1,24 @@
 {
   "name": "pangaea",
   "mixins": {
+    "pangaea-core": {
+      "scripts": [
+        "js/font-hack.js",
+        "js/init.js",
+        "js/abba.js",
+        "js/data.js",
+        "js/model.js",
+        "js/view.js",
+        "js/analytics.js",
+        "js/web-data.js",
+        "js/view-helpers.js",
+        "js/paged-collection.js",
+        "js/models/authentication.js",
+        "js/models/app-version.js",
+        "js/dictionary.js",
+        "js/views/mixin/scroll-position.js"
+      ]
+    },
     "pangaea-connection": {
       "scripts": [
         "js/connection/signature.js",

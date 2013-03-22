@@ -24,37 +24,22 @@
         "web-core-ui",
         "alert-error-handler",
         "core-helpers",
-
-        "pangaea-connection"
+        "pangaea-connection",
+        "pangaea-core"
       ],
       "scripts": [
-        "js/font-hack.js",
-
-        "js/paged-collection.js",
         "js/views/search-input.js",
         "js/views/cart-mini.js",
         "js/views/departments-global.js",
         "js/views/header.js",
         "js/views/footer.js",
-        "js/init.js",
-        "js/abba.js",
-        "js/data.js",
         "js/zepto.menu-aim.js",
-        "js/model.js",
-        "js/view.js",
-        "js/analytics.js",
-        "js/web-data.js",
-        "js/view-helpers.js",
-        "js/models/authentication.js",
-        "js/models/app-version.js",
         "js/models/store.js",
         "js/collections/stores.js",
-        "js/dictionary.js",
 
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
         {"src": "js/views/inline-loading.js", "mixin": "phoenix"},
         "js/views/paginator.js",
-        "js/views/mixin/scroll-position.js",
       ],
       "styles": [
         "components/phoenix/styles/components/loading-indicator.styl",
