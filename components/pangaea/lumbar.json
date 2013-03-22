@@ -1,0 +1,13 @@
+{
+  "name": "pangaea",
+  "mixins": {
+    "pangaea-connection": {
+      "scripts": [
+        "js/connection/signature.js",
+        "js/connection/error-handler.js",
+        "js/connection/data.js",
+        "js/connection/local-cache.js"
+      ]
+    }
+  }
+}

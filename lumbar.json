@@ -4,7 +4,8 @@
     "components/lumbar-loader",
     "components/thorax",
     "components/phoenix",
-    "components/location-core"
+    "components/location-core",
+    "components/pangaea"
   ],
 
   "modules": {
@@ -22,14 +23,12 @@
         "core-ui",
         "web-core-ui",
         "alert-error-handler",
-        "core-helpers"
+        "core-helpers",
+
+        "pangaea-connection"
       ],
       "scripts": [
         "js/font-hack.js",
-        "js/connection/signature.js",
-        "js/connection/error-handler.js",
-        "js/connection/data.js",
-        "js/connection/local-cache.js",
 
         "js/paged-collection.js",
         "js/views/search-input.js",
