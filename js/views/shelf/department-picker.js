@@ -19,8 +19,6 @@ var ShelfDepartmentPicker = Phoenix.View.extend({
     this.setLabel();
   },
   show: function() {
-    console.trace();
-    console.log('->show?');
     if (this.isOpen) {
       return;
     }
@@ -29,8 +27,6 @@ var ShelfDepartmentPicker = Phoenix.View.extend({
     this.trigger('show');
   },
   hide: function() {
-    console.trace();
-    console.log('->hide');
     if (!this.isOpen) {
       return;
     }
