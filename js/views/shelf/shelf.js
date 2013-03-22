@@ -128,16 +128,20 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.departmentPicker.disable();
       this.departmentPicker.bind('show', function(){
         this.departmentList.show();
-        this.toggleRefinements(false);
-        _.invoke(this._elementsToToggle(['shelf-department-list']), 'hide');
+        if (!Phoenix.isDesktop) {
+          this.toggleRefinements(false);
+          _.invoke(this._elementsToToggle(['shelf-department-list']), 'hide');
+        }
       },this);
       this.departmentPicker.bind('hide', function(){
         this.departmentList.hide();
-        var excludes = ['shelf-department-list', 'shelf-refinement-list'];
-        if (this.collection.numOfPages() < 2) {
-          excludes.push('paginator');
+        if (!Phoenix.isDesktop) {
+          var excludes = ['shelf-department-list', 'shelf-refinement-list'];
+          if (this.collection.numOfPages() < 2) {
+            excludes.push('paginator');
+          }
+          _.invoke(this._elementsToToggle(excludes), 'show');
         }
-        _.invoke(this._elementsToToggle(excludes), 'show');
       },this);
     }
     this.itemCount = new Phoenix.Views.ShelfItemCount;
@@ -272,7 +276,15 @@ var ShelfView = Phoenix.CollectionView.extend({
         // TODO pangea: no refinementsLink
         //self.refinementsLink.toggleClass('filtered', child.prefStore || child.curFilters.length);
       }
-    });
+      if (!parseInt(collection.totalCount, 10)) {
+        this.clickPaginatorTop.hide();
+        this.clickPaginatorBottom.hide();
+      } else {
+        this.clickPaginatorTop.show();
+        this.clickPaginatorBottom.show();
+      }
+
+    }, this);
   },
 
   onApplyStoreAndFilters: function(obj) {
@@ -389,9 +401,11 @@ var ShelfView = Phoenix.CollectionView.extend({
   },
   _elementsToToggle: function(excludes) {
     var elements = [
-      this.$('.shelf-list'),
-      $(Phoenix.footer.el)
+      this.$('.shelf-list')
     ];
+    if (Phoenix.footer) {
+      elements.push($(Phoenix.footer.el));
+    }
     var excluded = _.difference(['paginator', 'shelf-refinement-list', 'shelf-department-list', 'shelf-item-count'], excludes);
     elements = elements.concat(_.map(excluded, function(val) {
       return this.$('.' + val);

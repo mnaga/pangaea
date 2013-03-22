@@ -1,4 +1,5 @@
 [data-view-name="search-input"]
+  display: none
   position: absolute
   bottom: -65px
   left: 0;
@@ -8,6 +9,9 @@
   overflow: visible
   border-bottom: 1px solid #eee;
   text-align: center;
+
+  &.active
+    display: block
   
   input[type="search"]
     width: 100%
@@ -38,6 +42,7 @@
 @media all and (min-width: 800px)
   [data-view-name="search-input"]
     position: static
+    display: block
     span-columns(3)
     pre(1)
     padding: 0

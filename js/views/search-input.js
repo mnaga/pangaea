@@ -4,6 +4,12 @@ View.extend({
   events: {
     'submit': 'submit'
   },
+  initialize: function() {
+    Phoenix.on('toggle:search', function() {
+      $('.search-input').toggleClass('active');
+      $('.header').toggleClass('expanded');
+    });
+  },
   submit: function(event) {
     event && event.preventDefault();
     var query = this.$('input[type="search"]').val();
