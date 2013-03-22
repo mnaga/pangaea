@@ -186,10 +186,6 @@ var deptData = [
                 ]
             },
             {
-                "name": "Wedding Registry",
-                "entries": []
-            },
-            {
                 "name": "Furniture",
                 "entries": [
                     "Baby",
@@ -247,18 +243,6 @@ var deptData = [
                     "Boys",
                     "Girls",
                     "Baby & Kids' Shoes"
-                ]
-            },
-            {
-                "name": "Featured Shops",
-                "entries": [
-                    "Baby & Kids Extravaganza",
-                    "Dress Shop",
-                    "Easter Styles",
-                    "School Uniform Shop",
-                    "Swim Shop",
-                    "Team Sports Shop",
-                    "The Fitting Room"
                 ]
             },
             {
@@ -369,6 +353,15 @@ var deptData = [
                 ]
             },
             {
+                "name": "Bikes & Riding Toys",
+                "entries": [
+                    "Bikes",
+                    "Pedal & Push",
+                    "Powered Ride On's",
+                    "Scooters"
+                ]
+            },
+            {
                 "name": "Outdoor Play",
                 "entries": [
                     "Bouncers & Ball Pits",
@@ -376,15 +369,6 @@ var deptData = [
                     "Swimming Pools & Waterslides",
                     "Swing Sets",
                     "Trampolines"
-                ]
-            },
-            {
-                "name": "Bikes & Riding Toys",
-                "entries": [
-                    "Bikes",
-                    "Pedal & Push",
-                    "Powered Ride On's",
-                    "Scooters"
                 ]
             },
             {
@@ -476,10 +460,6 @@ var deptData = [
                     "NASCAR",
                     "Soccer"
                 ]
-            },
-            {
-                "name": "Game Room",
-                "entries": []
             }
         ],
         "name": "Sports, Fitness & Outdoors",
@@ -512,16 +492,6 @@ var deptData = [
                 ]
             },
             {
-                "name": "Outdoor Power Equipment",
-                "entries": [
-                    "Chainsaws",
-                    "Leaf Blowers",
-                    "Lawn Mowers",
-                    "Snow Removal",
-                    "Trimmers & Edgers"
-                ]
-            },
-            {
                 "name": "Home Improvement",
                 "entries": [
                     "Air Conditioners",
@@ -537,6 +507,16 @@ var deptData = [
                     "Plumbing & Fixtures",
                     "Pressure Washers",
                     "Tools"
+                ]
+            },
+            {
+                "name": "Outdoor Power Equipment",
+                "entries": [
+                    "Chainsaws",
+                    "Leaf Blowers",
+                    "Lawn Mowers",
+                    "Snow Removal",
+                    "Trimmers & Edgers"
                 ]
             },
             {
@@ -601,10 +581,6 @@ var deptData = [
                 ]
             },
             {
-                "name": "Wedding Shop",
-                "entries": []
-            },
-            {
                 "name": "Gift Cards",
                 "entries": [
                     "Check Your Gift Card Balance",
@@ -649,6 +625,14 @@ var deptData = [
                 ]
             },
             {
+                "name": "Vision Center",
+                "entries": [
+                    "Contact Lenses",
+                    "Eye Care Products",
+                    "Reading Glasses"
+                ]
+            },
+            {
                 "name": "Health",
                 "entries": [
                     "Diet & Nutrition",
@@ -659,6 +643,15 @@ var deptData = [
                     "Vision Center",
                     "Vitamins",
                     "Wellness Shops"
+                ]
+            },
+            {
+                "name": "Health Tools",
+                "entries": [
+                    "Calorie Burn Calculator",
+                    "Diet & Fitness Tracker",
+                    "Health Shopping Advisors",
+                    "Over-the-Counter Medication Finder "
                 ]
             },
             {
@@ -673,23 +666,6 @@ var deptData = [
                     "Men's Grooming",
                     "Shaving",
                     "Skin Care"
-                ]
-            },
-            {
-                "name": "Vision Center",
-                "entries": [
-                    "Contact Lenses",
-                    "Eye Care Products",
-                    "Reading Glasses"
-                ]
-            },
-            {
-                "name": "Health Tools",
-                "entries": [
-                    "Calorie Burn Calculator",
-                    "Diet & Fitness Tracker",
-                    "Health Shopping Advisors",
-                    "Over-the-Counter Medication Finder "
                 ]
             }
         ],
@@ -716,7 +692,7 @@ var deptData = [
                 ]
             },
             {
-                "name": "Household Essentials",
+                "name": "Household",
                 "entries": [
                     "Batteries",
                     "Bathroom",
