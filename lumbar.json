@@ -35,6 +35,7 @@
         "js/views/header.js",
         "js/views/footer.js",
         "js/zepto.menu-aim.js",
+        "js/zepto.delayed-hover.js",
         {"src": "js/util/click-mask.js", "mixin": "phoenix"},
         {"src": "js/views/inline-loading.js", "mixin": "phoenix"}
       ],

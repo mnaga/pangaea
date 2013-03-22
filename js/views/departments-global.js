@@ -2,11 +2,11 @@ Thorax.LayoutView.extend({
   name: 'departments-global',
   dataURL: 'http://delayed-data.herokuapp.com/departments.json?callback=?',
   departments:null,
+  mouseOutTimeout:null,
   events: {
-    "toggle": "toggleMenu"
-       /*
-    "mouseout [data-view-name='departments-global']" : "hideMenu"
-    */
+    "toggle": "toggleMenu",
+    "mouseout" : "requestHideMenu",
+    "mouseover" : "killRequestHideMenu",
   },
   toggleMenu:function() {
     if (this.$el.css("display")=="none") {
@@ -18,14 +18,14 @@ Thorax.LayoutView.extend({
       }
 
       if (this.departments) {
-        this.drawMenu();
-      } else {
+        this.showMenu();
+      } else { //Load remotely...
         $.ajax({
           dataType: "jsonp",
           url: this.dataURL,
           success: function(data) {
             this.departments = data
-            this.drawMenu()
+            this.showMenu()
           }.bind(this)
         })
       }
@@ -33,19 +33,30 @@ Thorax.LayoutView.extend({
       this.hideMenu();
     }
   },
-  drawMenu:function() {
-    this.render()
+  showMenu:function() {
+    this.render();
     this.$el.find(".departments ul").menuAim({
       rowSelector: ".departments ul li",
       tolerance: 300,
       activate: this.showDepartment.bind(this),
-      deactivate: this.hideDepartment.bind()
+      deactivate: this.hideDepartment.bind(this)
     });
+  },
+  requestHideMenu:function(event) {
+    // Mouse out is triggered anytime an element takes the mouse away from
+    //the parent, even children. Check if currentTarget is a child of parent
+    // and short circuit. Or switch to jQuery and use 'mouseleave :)
+    if (!$.contains(this.$el[0], event.toElement)) {
+      this.mouseOutTimeout = setTimeout(this.hideMenu.bind(this), 500)
+    }
+  },
+  killRequestHideMenu:function() {
+    if (this.mouseOutTimeout) {
+      clearTimeout(this.mouseOutTimeout);
+    }
   },
   hideMenu:function() {
     this.$el.hide();
-    this.setView(null);
-    this.$el.find(".expanded").hide();
   },
   showDepartment:function(deptElement) {
     var deptID = $(deptElement).data("department-id");
@@ -53,12 +64,16 @@ Thorax.LayoutView.extend({
       this.subs = this.departments[deptID-1]["subs"];
       var view = new SubView({
         subs: this.subs
-      })
+      });
       this.setView(view);
-      this.$el.find(".expanded").show()
+      this.$el.find(".expanded").on("mouseout", this.requestHideMenu.bind(this));
+      this.$el.find(".expanded").show();
     }
   },
   hideDepartment:function(row) {
+    this.setView(null);
+    this.$el.find(".expanded").off("mouseout", this.requestHideMenu.bind(this));
+    this.$el.find(".expanded").hide();
   }
 });
 
@@ -84,10 +99,6 @@ var deptData = [
                     "TV & Video",
                     "Video Games"
                 ]
-            },
-            {
-                "name": "Electronics Learning Center",
-                "entries": []
             },
             {
                 "name": "Computers",
@@ -209,10 +220,6 @@ var deptData = [
     {
         "subs": [
             {
-                "name": "Apparel",
-                "entries": []
-            },
-            {
                 "name": "Shop for Her",
                 "entries": [
                     "Intimates & Sleepwear",
@@ -283,10 +290,6 @@ var deptData = [
     {
         "subs": [
             {
-                "name": "Baby Registry",
-                "entries": []
-            },
-            {
                 "name": "Baby",
                 "entries": [
                     "Activities & Toys",
@@ -312,10 +315,6 @@ var deptData = [
                     "Baby Boy Clothing",
                     "Baby Girl Clothing"
                 ]
-            },
-            {
-                "name": "Maternity",
-                "entries": []
             },
             {
                 "name": "Activities & Toys",
@@ -346,23 +345,8 @@ var deptData = [
                     "Furniture",
                     "Storage"
                 ]
-            },
-            {
-                "name": "School Uniforms Shop",
-                "entries": []
-            },
-            {
-                "name": "Girls' Apparel",
-                "entries": []
-            },
-            {
-                "name": "Boys' Apparel",
-                "entries": []
-            },
-            {
-                "name": "Kids' Shoes",
-                "entries": []
             }
+
         ],
         "name": "Baby & Kids",
         "id":5
@@ -434,10 +418,6 @@ var deptData = [
     },
     {
         "subs": [
-            {
-                "name": "Sports & Outdoors",
-                "entries": []
-            },
             {
                 "name": "Exercise & Fitness",
                 "entries": [
@@ -767,10 +747,6 @@ var deptData = [
                     "Healthy Eating ",
                     "Pets Center"
                 ]
-            },
-            {
-                "name": "Grocery Delivery - <font size=\"1px\"> Beta</font>",
-                "entries": []
             }
         ],
         "name": "Grocery & Pets",
