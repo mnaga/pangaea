@@ -464,9 +464,9 @@ function updatePrice($el, newPrice) {
       if (newPrice.length > oldPrice.length) {
         newPrice = newPrice.replace(/^\d/, '');
       }
-      $el.find('.price').html(replaceNumbers('$' + oldPrice, '$' + newPrice));
+      $el.find('.price').addClass('hidden').insertAfter(replaceNumbers('$' + oldPrice, '$' + newPrice));
     }
-  }, _.random(15000));
+  }, _.random(1000));
 }
 function cleanPrice(price) {
   price = price.replace(/^\$/, '');
@@ -502,5 +502,5 @@ replaceNumbers = function(oldPrice, newPrice) {
     return output += digit(d, true);
   });
   output += '</div>';
-  return output;
+  return '<div class="dynamic-price">' + output + '</div>';
 };
