@@ -4,6 +4,30 @@
   background: #eee
   box-shadow: inset 0 5px 10px rgba(0,0,0,0.15)
 
+  .actions
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    *zoom: 1
+
+    &:before, &:after
+      content: " "
+      display: table
+
+    &:after
+      clear: both
+
+    .button
+      float: right
+      width: 48%
+      font-size: 14px
+      font-weight: normal
+
+    .clear
+      float: left
+
+    label
+      display: none
+
   .refinement-category-btn
     position: relative
     display: block
@@ -92,6 +116,31 @@
 @media all and (min-width: 800px)
   [data-view-name="shelf/refinement-list"]
     display: block !important // Should remove inline display: none
-    margin: 12px
+    padding: 12px 0
     background: none;
     box-shadow: none
+
+    .actions
+      margin-bottom: 12px
+      border: 0
+
+      label
+        display: block;
+        margin-bottom: 12px;
+        color: #444;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+@media all and (min-width: 1200px)
+  [data-view-name="shelf/refinement-list"]
+    .actions
+      label
+        display: inline-block
+        margin-bottom: 0
+
+      .button, .clear
+        float: none
+        display: inline-block
+        width: 75px
+        margin-left: 24px

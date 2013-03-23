@@ -152,6 +152,7 @@
   .shelf-sidebar
     float: left
     width: space(3)
+    padding: 24px 12px
     border-top: 1px solid #eee
     box-shadow: 1px 0 0 #ccc
 
@@ -169,7 +170,7 @@
     display: block
     width: 100%
     height: 48px
-    padding: 12px 12px 12px 48px
+    padding: 0 0 0 36px
     float: none
     background: none
     border: 0
@@ -185,22 +186,25 @@
 
     &::after, &.open::after
       position: absolute
-      content: " "
+      top: auto
       right: 0
-      left: 0
       bottom: 0
+      left: 0
+      margin: 0
+      width: 100%
       height: 1px
+      content: " "
       background: linear-gradient(left, #eee 0%, #d9d9d9 25%, #d9d9d9 75%, #eee 100%)
 
     &::before
       position: absolute
-      left: 24px
-      top: 13px
+      left: 12px
+      top: 9px
       content: "▶"
       font-size: 14px
 
     &.open::before
-      left: 22px
+      left: 10px
       content: "▼"
       font-size: 16px
 
@@ -223,4 +227,5 @@
 @media all and (min-width: 800px)
   .third-party-ad
     display: block
+    margin: 48px 0
     text-align: center
