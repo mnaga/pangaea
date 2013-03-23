@@ -451,20 +451,22 @@ var overlayDyanmicPricing = _.once(function () {
 
 function updatePrice($el, newPrice) {
   setTimeout(function() {
-    if (newPrice && $el.find('.price').length && !$el.html().match('From')) {
+    if (newPrice && $el.find('.price').length) {
       var oldPrice = $el.find('.price').text();
-      oldPrice = cleanPrice(oldPrice);
-      newPrice = cleanPrice(newPrice);
-      if (oldPrice.length === 6 && newPrice.length === 5) {
-        newPrice = '1' + newPrice;
+      if (!oldPrice.match(/(from|varies)/i)) {
+        oldPrice = cleanPrice(oldPrice);
+        newPrice = cleanPrice(newPrice);
+        if (oldPrice.length === 6 && newPrice.length === 5) {
+          newPrice = '1' + newPrice;
+        }
+        if (oldPrice.length === 5 && newPrice.length === 4) {
+          newPrice = '1' + newPrice;
+        }
+        if (newPrice.length > oldPrice.length) {
+          newPrice = newPrice.replace(/^\d/, '');
+        }
+        $el.find('.price').addClass('hidden').parent().append(replaceNumbers('$' + oldPrice, '$' + newPrice));
       }
-      if (oldPrice.length === 5 && newPrice.length === 4) {
-        newPrice = '1' + newPrice;
-      }
-      if (newPrice.length > oldPrice.length) {
-        newPrice = newPrice.replace(/^\d/, '');
-      }
-      $el.find('.price').addClass('hidden').parent().append(replaceNumbers('$' + oldPrice, '$' + newPrice));
     }
   }, _.random(1000));
 }
@@ -481,8 +483,10 @@ function cleanPrice(price) {
 replaceNumbers = function(oldPrice, newPrice) {
   var digit, output;
   digit = function(d, isDecimal) {
-    var output, _ref;
-    output = '<span class="' + (isDecimal ? 'decimal' : 'digit') + '"><span class="top"><span>' + d + '</span></span>';
+    var output,
+        special = d.match(/(\$|\.)/),
+        className = special ? 'special' : (isDecimal ? 'decimal' : 'digit');
+    output = '<span class="' + className + '"><span class="top"><span>' + d + '</span></span>';
     return output += '<span class="bottom"><span>' + d + '</span></span></span>';
   };
   output = '<div class="old-price">';
