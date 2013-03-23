@@ -23,10 +23,10 @@ Thorax.LayoutView.extend({
         $.ajax({
           dataType: "jsonp",
           url: this.dataURL,
-          success: function(data) {
+          success: _.bind(function(data) {
             this.departments = data
             this.showMenu()
-          }.bind(this)
+          }, this)
         })
       }
     } else {

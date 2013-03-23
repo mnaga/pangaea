@@ -7,10 +7,11 @@ View.extend({
   },
   initialize: function() {
     this.nav = new Phoenix.Views['departments-global'];
+    this.toggleNav = _.bind(this.toggleNav, this);
   },
   postRender:function() {
     this.$el.find("a.departments-nav").delayedHover({mouseoutDelay:500});
-    this.$el.find("a.departments-nav").on("delayed_hover:enter", this.toggleNav.bind(this))
+    this.$el.find("a.departments-nav").on("delayed_hover:enter", this.toggleNav)
   },
   setTerm: function(term) {
     this.searchTerm = term;

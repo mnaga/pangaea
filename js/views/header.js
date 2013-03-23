@@ -17,9 +17,9 @@ View.extend({
 
       this.$el.find(".header-action[data-action='cart']")
         .on("delayed_hover:enter",
-          function() {
+          _.bind(function() {
             this.cartMini.trigger("show")
-          }.bind(this));
+          },this));
     }
   },
   toggleSearch: function() {
