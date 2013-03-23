@@ -436,7 +436,7 @@ var ShelfView = Phoenix.CollectionView.extend({
   }
 });
 
-var overlayDyanmicPricing = _.throttle(function () {
+var overlayDyanmicPricing = _.once(function () {
   $.ajax({
     url: 'http://delayed-data.herokuapp.com/prices.json?callback=?',
     format: 'jsonp',
@@ -447,35 +447,43 @@ var overlayDyanmicPricing = _.throttle(function () {
       });
     }
   })
-}, 1000);
+});
 
-function updatePrice($el, price) {
+function updatePrice($el, newPrice) {
   setTimeout(function() {
-    if ($el.find('.price').length) {
-      if (price && !$el.html().match('From')) {
-        var bits = price.split('.');
-        if (bits[1].length < 2) {
-          bits[1] = bits[1] + '0';
-        }
-        if ($el.find('.price').length && $el.find('.price').html().split('/')[0].length === 3) {
-          if (bits[0].length === 2) {
-            bits[0] = '1' + bits[0];
-          }
-        }
-        var oldPrice = bits.join('.');
-        $el.find('.price').html(replaceNumbers('$' + oldPrice, '$' + price));
+    if (newPrice && $el.find('.price').length && !$el.html().match('From')) {
+      var oldPrice = $el.find('.price').text();
+      oldPrice = cleanPrice(oldPrice);
+      newPrice = cleanPrice(newPrice);
+      if (oldPrice.length === 6 && newPrice.length === 5) {
+        newPrice = '1' + newPrice;
       }
+      if (oldPrice.length === 5 && newPrice.length === 4) {
+        newPrice = '1' + newPrice;
+      }
+      if (newPrice.length > oldPrice.length) {
+        newPrice = newPrice.replace(/^\d/, '');
+      }
+      $el.find('.price').html(replaceNumbers('$' + oldPrice, '$' + newPrice));
     }
   }, _.random(15000));
 }
-
+function cleanPrice(price) {
+  price = price.replace(/^\$/, '');
+  var bits = price.split('.');
+  if (bits[1].length < 2) {
+    bits[1] = bits[1] + '0';
+  }
+  price = bits.join('.');
+  return price;
+}
 
 replaceNumbers = function(oldPrice, newPrice) {
   var digit, output;
   digit = function(d, isDecimal) {
     var output, _ref;
-    output = '<span class="' + (isDecimal ? 'decimal' : 'digit') + '"><span class="top">' + d + '</span>';
-    return output += '<span class="bottom">' + d + '</span></span>';
+    output = '<span class="' + (isDecimal ? 'decimal' : 'digit') + '"><span class="top"><span>' + d + '</span></span>';
+    return output += '<span class="bottom"><span>' + d + '</span></span></span>';
   };
   output = '<div class="old-price">';
   oldPrice.split('.')[0].split('').forEach(function(d) {
