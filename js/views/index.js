@@ -413,9 +413,6 @@ var ShelfView = Phoenix.CollectionView.extend({
     var elements = [
       this.$('.shelf-list')
     ];
-    //if (Phoenix.footer) {
-    //  elements.push($(Phoenix.footer.el));
-    //}
     if (Phoenix.isDesktop) {
       elements.push(this.clickPaginatorTop.$el);
       elements.push(this.clickPaginatorBottom.$el);
@@ -424,7 +421,6 @@ var ShelfView = Phoenix.CollectionView.extend({
     elements = elements.concat(_.map(excluded, function(val) {
       return this.$('.' + val);
     }, this));
-    console.log('elements',elements);
     return elements;
   },
   wwwUrl: function() {
