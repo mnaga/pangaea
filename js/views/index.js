@@ -464,7 +464,7 @@ function updatePrice($el, newPrice) {
       if (newPrice.length > oldPrice.length) {
         newPrice = newPrice.replace(/^\d/, '');
       }
-      $el.find('.price').addClass('hidden').insertAfter(replaceNumbers('$' + oldPrice, '$' + newPrice));
+      $el.find('.price').addClass('hidden').parent().append(replaceNumbers('$' + oldPrice, '$' + newPrice));
     }
   }, _.random(1000));
 }
