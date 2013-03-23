@@ -122,6 +122,14 @@ var RefinementList = Phoenix.CollectionView.extend({
     if (this.isSearch) {
       this.$('.select-refinement-store').hide();
     }
+  },
+
+  show: function() {
+    this.$el.removeClass('hidden');
+  },
+
+  hide: function() {
+    this.$el.addClass('hidden');
   }
 
 });

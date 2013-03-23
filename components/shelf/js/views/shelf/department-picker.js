@@ -142,10 +142,10 @@ var ShelfDepartmentList = Phoenix.CollectionView.extend({
   },
   show: function() {
     // Called by shelf view in response to events from DepartmentPicker
-    $(this.el).show();
+    this.$el.removeClass('hidden');
   },
   hide: function() {
-    $(this.el).hide();
+    this.$el.addClass('hidden');
     this.sortBySelected();
     if (this.selectedDept) {
       this.showAllDepartments();

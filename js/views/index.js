@@ -149,7 +149,7 @@ var ShelfView = Phoenix.CollectionView.extend({
     this.refinementList = new RefinementList({
       isSearch: this.isSearch()
     });
-    this.refinementList.$el.hide();
+    this.refinementList.hide();
     this.refinementList.bind('hide', function(){
         this.toggleRefinements(false);
       },this);
@@ -309,9 +309,9 @@ var ShelfView = Phoenix.CollectionView.extend({
       }
       this.refinementsLink.addClass('open');
       _.invoke(this._elementsToToggle(['shelf-refinement-list']), 'hide');
-      this.refinementList.$el.show();
+      this.refinementList.show();
     } else {
-      this.refinementList.$el.hide();
+      this.refinementList.hide();
       var excludes = ['shelf-refinement-list', 'shelf-department-list'];
       if (this.collection.numOfPages() < 2) {
         excludes.push('paginator');
