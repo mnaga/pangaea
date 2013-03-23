@@ -140,7 +140,9 @@ var ShelfView = Phoenix.CollectionView.extend({
           if (this.collection.numOfPages() < 2) {
             excludes.push('paginator');
           }
-          _.invoke(this._elementsToToggle(excludes), 'show');
+          this._elementsToToggle(excludes).forEach(function(el) {
+            el.css({display: null});
+          });
         }
       },this);
     }
@@ -411,13 +413,18 @@ var ShelfView = Phoenix.CollectionView.extend({
     var elements = [
       this.$('.shelf-list')
     ];
-    if (Phoenix.footer) {
-      elements.push($(Phoenix.footer.el));
+    //if (Phoenix.footer) {
+    //  elements.push($(Phoenix.footer.el));
+    //}
+    if (Phoenix.isDesktop) {
+      elements.push(this.clickPaginatorTop.$el);
+      elements.push(this.clickPaginatorBottom.$el);
     }
     var excluded = _.difference(['paginator', 'shelf-refinement-list', 'shelf-department-list', 'shelf-item-count'], excludes);
     elements = elements.concat(_.map(excluded, function(val) {
       return this.$('.' + val);
     }, this));
+    console.log('elements',elements);
     return elements;
   },
   wwwUrl: function() {
