@@ -11,6 +11,8 @@ $department-nav-height = 400px
   .departments
     float: left
     width: 250px
+    position: relative
+    z-index:1005
     height: $department-nav-height
     background-color: #FFF
     box-shadow: 0px 1px 3px rgba(0,0,0,.7)
@@ -28,11 +30,11 @@ $department-nav-height = 400px
 
   .expanded
     display: none
+    box-shadow 0px 1px 3px rgba(0,0,0,.7), inset 10px 0px 10px 0px rgba(0, 0, 0, .1)
     float: left
     color: #1b79b7
     padding: 20px 0px 0 25px
     background-color: #FFF
-    box-shadow: 0px 1px 3px rgba(0,0,0,.7)
     height: $department-nav-height
     .columns
       -webkit-columns: 4

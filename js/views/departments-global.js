@@ -101,18 +101,6 @@ var deptData = [
                 ]
             },
             {
-                "name": "Computers",
-                "entries": [
-                    "Desktops",
-                    "Laptops",
-                    "Monitors",
-                    "Networking",
-                    "Printers & Supplies",
-                    "Tablets",
-                    "See all"
-                ]
-            },
-            {
                 "name": "Office",
                 "entries": [
                     "Breakroom Supplies",
@@ -124,7 +112,20 @@ var deptData = [
                     "Phones & Accessories",
                     "School Supplies"
                 ]
+            },
+            {
+                "name": "Computers",
+                "entries": [
+                    "Desktops",
+                    "Laptops",
+                    "Monitors",
+                    "Networking",
+                    "Printers & Supplies",
+                    "Tablets",
+                    "See all"
+                ]
             }
+
         ],
         "name": "Electronics & Office",
         "id":1

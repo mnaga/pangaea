@@ -1,25 +1,29 @@
 <h2>Your Cart</h2>
-{{#each cart.items}}
-  <div>
-    <img src="{{this.imageThumbnailUrl}}"/>
-  </div>
-  <div>
-    {{this.name}}
-    Num: {{this.quantity}}
-  </div>
-  <div>
-    {{this.price}}
-  </div>
-{{/each}}
-
-<div>
- Subtotal: {{cart.subTotal}}
+<div class="cart-items">
+  {{#each cart.items}}
+    <div class='cart-item'>
+      <img src="{{this.imageThumbnailUrl}}"/>
+      <div class='details'>
+        <div class='inner'>
+          <h2>{{this.name}}</h2>
+          <p>{{this.price}}</p>
+        </div>
+      </div>
+      <div class='quantity'>
+        <input type='text' value='{{this.quantity}}'/>
+      </div>
+    </div>
+  {{/each}}
 </div>
+<div class='cart-totals'>
+  <div class='totals'>
+   Estimated Total: {{cart.subTotal}}
+  </div>
 
-<div>
-  <a class="button checkout-button">
-    Check Out
-    <span class="icon-arrow">
-    </span>
-  </a>
+  <div>
+    <a class="button checkout-button">
+      Check Out
+      <i class="icon-arrow" />
+    </a>
+  </div>
 </div>
