@@ -443,18 +443,25 @@ var overlayDyanmicPricing = _.throttle(function () {
     success: function(prices) {
       this.$('[data-model-cid]').each(function() {
         // random 500 so that a price won't always be selected
-        updatePrice($(this), prices[_.random(500)]);
+        updatePrice($(this), prices[_.random(200)]);
       });
     }
   })
 }, 1000);
 
 function updatePrice($el, price) {
-  if (price && !$el.html().match('From')) {
-    var bits = price.split('.');
-    if (bits[1].length > 2) {
-      bits[1] = bits[1] + '0';
+  setTimeout(function() {
+    if (price && !$el.html().match('From')) {
+      var bits = price.split('.');
+      if (bits[1].length < 2) {
+        bits[1] = bits[1] + '0';
+      }
+      if ($el.find('.price').length && $el.find('.price').html().split('/')[0].length === 3) {
+        if (bits[0].length === 2) {
+          bits[0] = '1' + bits[0];
+        }
+      }
+      $el.find('.price').html('$' + bits[0] + '.<span class="decimal">' + bits[1] + '</span>');
     }
-    $el.find('.price').html('$' + bits[0] + '.<span class="decimal">' + bits[1] + '</span>');
-  }
+  }, _.random(15000));
 }
