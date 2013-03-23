@@ -84,7 +84,8 @@
         "styles/grid-toggle.styl",
         "styles/sort-selector.styl",
         "styles/click-paginator.styl",
-        "styles/breadcrumb.styl"
+        "styles/breadcrumb.styl",
+        "styles/dynamic-pricing.styl"
       ]
     }
   },

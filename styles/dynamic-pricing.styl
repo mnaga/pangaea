@@ -1,0 +1,46 @@
+.price.hidden
+  visibility: hidden
+
+.dynamic-price
+  position: relative
+
+.new-price, .old-price
+  position: absolute
+
+.digit, .decimal
+  position: relative
+  display: inline-block
+  text-align: center
+  width: 20px
+  margin: 1px
+  height: 30px
+  border-radius: 2px
+
+.top
+  position: absolute
+  width: 100%
+  left: 0
+  top: 0
+  background: #fff
+  border: 1px solid #ccc
+  border-radius: 3px 3px 0 0
+  height: 16px
+  overflow: hidden
+  z-index: 2
+
+.bottom
+  width: 100%
+  position: absolute
+  left: 0
+  background: #fff
+  border: 1px solid #ccc
+  border-radius: 0 0 3px 3px
+  bottom: 0
+  overflow: hidden
+  margin-top: 1px
+  height: 15px
+  top: 14px
+
+  span
+    position: relative
+    top: -14px
