@@ -38,7 +38,14 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.$(this._collectionSelector).addClass('empty');
     },
     'rendered:collection': function() {
+      if (typeof window.callPhantom === 'function' && this.collection.length) {
+        window.callPhantom({
+          ready: true
+        });
+      }
+      
       overlayDyanmicPricing.call(this);
+
       Abba('zebra-stripes')
         .control('no-stripes', {weight: 20}, function(){})
         .variant('stripes', _.bind(function() {

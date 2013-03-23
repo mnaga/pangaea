@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  grunt.loadTasks('./tasks');
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('thorax-inspector');
 
