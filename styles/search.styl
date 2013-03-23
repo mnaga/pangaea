@@ -36,6 +36,9 @@
 .shelf-list
   clear: both
 
+  &.empty
+    border-top: 1px solid #eee
+
 .item-preview
   display: block
   position: relative
@@ -85,6 +88,24 @@
   .stars
     display: none
 
+.empty-shelf, .grid .empty-shelf
+  display: block
+  width: 100%
+  padding-top: 50px
+  padding-left: 12px
+  text-align: left
+  color: $font-color
+
+  h2
+    margin-bottom: 0.5em
+    font-size: 2em
+
+  li
+    display: block
+    width: 100%
+    font-size: 18px
+    text-align: left
+
 @media all and (min-width: 400px)
   .grid li
     width: 33%
@@ -131,6 +152,7 @@
     float: left
     width: space(3)
     border-top: 1px solid #eee
+    box-shadow: 1px 0 0 #ccc
 
   .shelf-primary
     float: left
