@@ -451,17 +451,48 @@ var overlayDyanmicPricing = _.throttle(function () {
 
 function updatePrice($el, price) {
   setTimeout(function() {
-    if (price && !$el.html().match('From')) {
-      var bits = price.split('.');
-      if (bits[1].length < 2) {
-        bits[1] = bits[1] + '0';
-      }
-      if ($el.find('.price').length && $el.find('.price').html().split('/')[0].length === 3) {
-        if (bits[0].length === 2) {
-          bits[0] = '1' + bits[0];
+    if ($el.find('.price').length) {
+      if (price && !$el.html().match('From')) {
+        var bits = price.split('.');
+        if (bits[1].length < 2) {
+          bits[1] = bits[1] + '0';
         }
+        if ($el.find('.price').length && $el.find('.price').html().split('/')[0].length === 3) {
+          if (bits[0].length === 2) {
+            bits[0] = '1' + bits[0];
+          }
+        }
+        var oldPrice = bits.join('.');
+        $el.find('.price').html(replaceNumbers('$' + oldPrice, '$' + price));
       }
-      $el.find('.price').html('$' + bits[0] + '.<span class="decimal">' + bits[1] + '</span>');
     }
   }, _.random(15000));
 }
+
+
+replaceNumbers = function(oldPrice, newPrice) {
+  var digit, output;
+  digit = function(d, isDecimal) {
+    var output, _ref;
+    output = '<span class="' + (isDecimal ? 'decimal' : 'digit') + '"><span class="top">' + d + '</span>';
+    return output += '<span class="bottom">' + d + '</span></span>';
+  };
+  output = '<div class="old-price">';
+  oldPrice.split('.')[0].split('').forEach(function(d) {
+    return output += digit(d, false);
+  });
+  output += digit('.', false);
+  oldPrice.split('.')[1].split('').forEach(function(d) {
+    return output += digit(d, true);
+  });
+  output += '</div><div class="new-price">';
+  newPrice.split('.')[0].split('').forEach(function(d) {
+    return output += digit(d, false);
+  });
+  output += digit('.', false);
+  newPrice.split('.')[1].split('').forEach(function(d) {
+    return output += digit(d, true);
+  });
+  output += '</div>';
+  return output;
+};
