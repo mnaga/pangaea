@@ -77,3 +77,21 @@ In the above two examples the dictionary key may look like:
     dictionary_key: 'Search for: {{term}}'
   }
 
+Caching Demo
+------------
+A simple phantom scraper demonstration is included. In order to utilize it, do the following:
+
+    jake watch
+
+Then kill the process after the site has been compiled.
+
+    grunt cache:xbox
+    sudo killall node
+
+The last command is sometimes needed as the other process may leave a thread hanging. Now a cached page has been generated at "build/dev/xbox.html". You can visit it by:
+
+    jake start
+
+Then open:
+
+    http://localhost:8080/xbox.html
