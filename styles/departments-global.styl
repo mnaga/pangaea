@@ -18,15 +18,30 @@ $department-nav-height = 400px
     box-shadow: 0px 1px 3px rgba(0,0,0,.7)
     color: #1b79b7
     ul
-      margin: 10px auto auto 15px
+      margin: 10px auto auto 10px
       li
-        padding: 4px 10px 2px 10px
-        border-radius: 15px
+        padding: 4px 10px 2px 17px
+        border-top-left-radius: 15px
+        border-bottom-left-radius: 15px
         cursor: pointer
         color: #1b79b7
-        &:hover
+        &.selected
           background-color: #1b79b7
           color: #FFF
+          position: relative
+          &:after
+            left: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color:  rgba(183, 155, 7, 0);
+            border-left-color: #1b79b7;
+            border-width: 15px;
+            top: 50%;
+            margin-top: -15px;
 
   .expanded
     display: none
@@ -36,8 +51,12 @@ $department-nav-height = 400px
     padding: 20px 0px 0 25px
     background-color: #FFF
     height: $department-nav-height
-    .columns
-      -webkit-columns: 4
+    border-bottom-right-radius: 15px
+    .wrapper
+      clearfix()
+    .column
+      float: left
+      width: 250px
     h2
       font-size: 1.2em
 

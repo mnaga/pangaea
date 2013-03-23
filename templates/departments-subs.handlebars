@@ -1,14 +1,18 @@
-<div class="columns">
-  {{#each subs}}
-    <div class="sub-department">
-      <h2>
-        {{this.name}}
-      </h2>
-      <ul>
-        {{#each this.entries}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
+<div class="wrapper">
+  {{#each columns}}
+    <div class="column">
+      {{#each this}}
+        <div class="sub-department">
+          <h2>
+            {{this.name}}
+          </h2>
+          <ul>
+            {{#each this.entries}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/each}}
     </div>
   {{/each}}
 </div>

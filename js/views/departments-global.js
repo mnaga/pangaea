@@ -47,7 +47,7 @@ Thorax.LayoutView.extend({
     //the parent, even children. Check if currentTarget is a child of parent
     // and short circuit. Or switch to jQuery and use 'mouseleave :)
     if (!$.contains(this.$el[0], event.toElement)) {
-      this.mouseOutTimeout = setTimeout(this.hideMenu.bind(this), 500)
+      this.mouseOutTimeout = setTimeout(this.hideMenu.bind(this), 250)
     }
   },
   killRequestHideMenu:function() {
@@ -59,21 +59,48 @@ Thorax.LayoutView.extend({
     this.$el.hide();
   },
   showDepartment:function(deptElement) {
-    var deptID = $(deptElement).data("department-id");
-    if (this.departments[deptID-1]) {
-      this.subs = this.departments[deptID-1]["subs"];
+    var deptID = $(deptElement).data("department-id")-1; //Zero-index array
+    $(deptElement).addClass('selected');
+    if (this.departments[deptID]) {
+
+      this.columns = this.mapColumns(this.departments[deptID]["subs"]);
+
       var view = new SubView({
-        subs: this.subs
+        columns: this.columns
       });
+
       this.setView(view);
       this.$el.find(".expanded").on("mouseout", this.requestHideMenu.bind(this));
       this.$el.find(".expanded").show();
     }
   },
-  hideDepartment:function(row) {
+  hideDepartment:function(deptElement) {
+    $(deptElement).removeClass('selected');
     this.setView(null);
     this.$el.find(".expanded").off("mouseout", this.requestHideMenu.bind(this));
     this.$el.find(".expanded").hide();
+  },
+  mapColumns:function(departmentData) {
+    var LINES_PER_COLUMN = 15,
+      columns = [],
+      currentColumn = [],
+      lineCount = 0;
+
+    _.each(
+      departmentData,
+      function(sub) {
+        var numEntries = sub.entries.length;
+        if ((lineCount + numEntries) > LINES_PER_COLUMN) {
+          columns.push(currentColumn);
+          currentColumn = [];
+          lineCount = 0;
+        }
+        currentColumn.push(sub);
+        lineCount+=numEntries+2; //Extra padding for header
+      })
+
+    columns.push(currentColumn);
+    return columns;
   }
 });
 
