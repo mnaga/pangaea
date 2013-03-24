@@ -18,7 +18,9 @@ View.extend({
   },
   showCart:function() {
     this.$el.show();
-    this.$el.html("Loading...");
+    var loading = new Phoenix.Views.InlineLoading({});
+    loading.render();
+    this.$el.html(loading.el);
     //return this.drawCart(cartData); //OVERRIDE LOCAL DATA
     if (this.cart) {
       this.drawCart()
