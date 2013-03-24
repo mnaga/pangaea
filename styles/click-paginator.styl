@@ -1,7 +1,8 @@
 [data-view-name="click-paginator"]
   position: relative
   display: block
-  min-height: 100px
+  
+  min-height: 64px
   padding-bottom: 14px
   border-top: 1px solid #cccccc
   font-size: 14px;
@@ -14,16 +15,23 @@
   .search-stats
     color: #444444
 
+  .search-stats-meta
+    display: none
+
   > .search-results-count
     display: block
-    margin: 14px 0
+    float: left
+    margin: 21px 0 0 12px
     text-align: center
     text-transform: uppercase
 
   .pagination-controls
+    float: right
+    margin: 12px
     text-align: center
   
     > span.search-results-page
+      display: none
       padding-right: 16px
   
     > .button
@@ -43,13 +51,24 @@
   
 @media all and (min-width: 600px)
   [data-view-name="click-paginator"]
+    min-height: 100px
+
+    .search-stats-meta
+      display: inline
+
     > .search-results-count
       position: absolute
       top: 40px
       left: 32px
+      float: none
       margin: 0
 
     .pagination-controls
       position: absolute
       right: 32px
       top: 30px
+      float: none
+      margin: 0
+
+      > span.search-results-page
+        display: inline
