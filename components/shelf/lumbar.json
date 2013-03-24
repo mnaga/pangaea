@@ -25,7 +25,8 @@
         "js/views/shelf/refinement-list.js"
       ],
       "styles": [
-        "styles/refinement-list.styl"
+        "styles/refinement-list.styl",
+        "styles/refinement-category.styl"
       ]
     }
   },
