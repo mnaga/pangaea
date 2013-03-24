@@ -245,13 +245,13 @@ var ShelfView = Phoenix.CollectionView.extend({
         if (collection.isOnFirst()) {
           setupDepartments();
         }
-        if (collection.length === 0) {
-          this.departmentPicker.hide();
-          this.refinementList.hide();
-        } else {
-          this.departmentPicker.show();
-          this.refinementList.show();
-        }
+        // if (collection.length === 0) {
+        //   this.departmentPicker.hide();
+        //   this.refinementList.hide();
+        // } else {
+        //   this.departmentPicker.show();
+        //   this.refinementList.show();
+        // }
       }, this);
 
       collection.on('reset', function(options) {
