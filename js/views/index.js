@@ -476,7 +476,6 @@ function updatePrice($el, newPrice) {
   setTimeout(function() {
     if (newPrice && $el.length) {
       var oldPrice = $el.parent().find('.original-price').text();
-      console.log(oldPrice);
       if (!oldPrice.match(/(from|varies)/i)) {
         oldPrice = cleanPrice(oldPrice);
         newPrice = cleanPrice(newPrice);
@@ -497,7 +496,7 @@ function updatePrice($el, newPrice) {
         }, 300);
       }
     }
-  }, _.random(1000));
+  }, _.random(20000));
 }
 function cleanPrice(price) {
   price = price.replace(/^\$/, '');
