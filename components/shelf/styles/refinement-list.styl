@@ -4,6 +4,9 @@
   background: #eee
   box-shadow: inset 0 5px 10px rgba(0,0,0,0.15)
 
+  &.hidden
+    display: none
+
   .actions
     padding: 12px;
     border-bottom: 1px solid #ccc;
@@ -117,10 +120,13 @@
 
 @media all and (min-width: 800px)
   [data-view-name="shelf/refinement-list"]
-    display: block !important // Should remove inline display: none
+    display: block
     padding: 12px 0
     background: none;
     box-shadow: none
+
+    &.hidden
+      display: block
 
     .actions
       margin-bottom: 12px
