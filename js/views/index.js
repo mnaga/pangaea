@@ -303,20 +303,11 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.$('[data-model-cid]:nth-child(3n) .price').addClass('original-price').each(function() {
         var priceElement = $(this);
         var originalPrice = cleanPrice(priceElement.text());
-
-        priceElement.parent().append('<div class="price dynamic-price">' + replaceNumbers('$' + originalPrice, '$' + originalPrice) + '</div>');
-        priceElement.hide();
+        if (!originalPrice.match(/(from|varies)/i)) { 
+          priceElement.parent().append('<div class="price dynamic-price">' + replaceNumbers('$' + originalPrice, '$' + originalPrice) + '</div>');
+          priceElement.hide();
+        }
       });
-
-      /*
-      if (parseInt(collection.totalCount, 10) === 0) {
-        this.departmentPicker.hide();
-      } else {
-        this.departmentPicker.show();
-      }
-      */
-
-
 
     }, this);
   },
