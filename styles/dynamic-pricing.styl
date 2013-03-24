@@ -1,6 +1,3 @@
-.price.hidden
-    opacity: 0
-
 .decimal
   font-size: .6666em
   position: relative
@@ -65,33 +62,29 @@
     font-size: .6666em
 
   .digit, .decimal
-    .top
+    .top, .bottom
       position: absolute
-      width: 100%
       left: 0
-      top: 0
+      width: 100%
+      height: 12px
       background: #fff
       border: 1px solid #ccc
+
+    .top
+      top: 0
       border-radius: 3px 3px 0 0
-      height: 12px
       overflow: hidden
       z-index: 2
       transition: 0.3s linear all
       transform-origin: 0 100%
 
     .bottom
-      display: block
-      width: 100%
-      position: absolute
-      left: 0
-      background: #fff
-      border: 1px solid #ccc
-      border-radius: 0 0 3px 3px
-      bottom: 0
-      overflow: hidden
-      margin-top: 1px
-      height: 12px
       top: 10px
+      bottom: 0
+      display: block
+      margin-top: 1px
+      border-radius: 0 0 3px 3px
+      overflow: hidden
       transform-origin: 0 0
 
       span
@@ -124,7 +117,7 @@
   100%
     transform: rotateX(0deg)
 
-@media all and (min-width: 800px)
+@media all and (min-width: 600px)
   .dynamic-price
     .digit, .decimal, .special
       height: 30px
