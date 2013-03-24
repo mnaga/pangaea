@@ -73,6 +73,7 @@
       "scripts": [
         "js/views/paginator.js",
         "js/views/sort-selector.js",
+        "js/dynamic-pricing.js",
         "js/views/index.js",
         "js/views/breadcrumb.js",
         "js/views/grid-toggle.js",
