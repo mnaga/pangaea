@@ -300,6 +300,14 @@ var ShelfView = Phoenix.CollectionView.extend({
         this.clickPaginatorBottom.show();
       }
 
+      this.$('[data-model-cid]:nth-child(3n) .price').addClass('original-price').each(function() {
+        var priceElement = $(this);
+        var originalPrice = cleanPrice(priceElement.text());
+
+        priceElement.parent().append('<div class="price dynamic-price">' + replaceNumbers('$' + originalPrice, '$' + originalPrice) + '</div>');
+        priceElement.hide();
+      });
+
       /*
       if (parseInt(collection.totalCount, 10) === 0) {
         this.departmentPicker.hide();
@@ -307,6 +315,8 @@ var ShelfView = Phoenix.CollectionView.extend({
         this.departmentPicker.show();
       }
       */
+
+
 
     }, this);
   },
@@ -455,18 +465,18 @@ var overlayDyanmicPricing = _.once(function () {
     url: 'http://delayed-data.herokuapp.com/prices.json?callback=?',
     format: 'jsonp',
     success: function(prices) {
-      this.$('[data-model-cid]').each(function() {
-        // random 500 so that a price won't always be selected
-        updatePrice($(this), prices[_.random(200)]);
+      this.$('[data-model-cid] .dynamic-price').each(function() {
+        updatePrice($(this), prices[_.random(prices.length)]);
       });
     }
-  })
+  });
 });
 
 function updatePrice($el, newPrice) {
   setTimeout(function() {
-    if (newPrice && $el.find('.price').length) {
-      var oldPrice = $el.find('.price').text();
+    if (newPrice && $el.length) {
+      var oldPrice = $el.parent().find('.original-price').text();
+      console.log(oldPrice);
       if (!oldPrice.match(/(from|varies)/i)) {
         oldPrice = cleanPrice(oldPrice);
         newPrice = cleanPrice(newPrice);
@@ -479,11 +489,12 @@ function updatePrice($el, newPrice) {
         if (newPrice.length > oldPrice.length) {
           newPrice = newPrice.replace(/^\d/, '');
         }
-        $el.find('.price').addClass('hidden').parent().append(replaceNumbers('$' + oldPrice, '$' + newPrice));
 
-        var priceCards = $el.find('.dynamic-price');
+        $el.html(replaceNumbers('$' + oldPrice, '$' + newPrice));
 
-        animateCards(priceCards);
+        setTimeout(function() {
+          animateCards($el);
+        }, 300);
       }
     }
   }, _.random(1000));
@@ -499,10 +510,6 @@ function cleanPrice(price) {
 }
 
 function animateCards(priceCards) {
-  setTimeout(function() {
-    priceCards.addClass('updating');
-  }, 300);
-
   var oldCard = priceCards.find('.old-price');
   var newCard = priceCards.find('.new-price');
 
@@ -524,10 +531,6 @@ function animateCards(priceCards) {
 
     if (index.length < 1) {
       clearInterval(timer);
-
-      setTimeout(function() {
-        priceCards.addClass('updated').removeClass('updating');
-      }, 900);
     }
   }, 300);
 }
@@ -558,5 +561,5 @@ replaceNumbers = function(oldPrice, newPrice) {
     return output += digit(d, true);
   });
   output += '</div>';
-  return '<div class="dynamic-price">' + output + '</div>';
+  return output;
 };
