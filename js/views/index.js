@@ -300,13 +300,16 @@ var ShelfView = Phoenix.CollectionView.extend({
         this.clickPaginatorBottom.show();
       }
 
-      this.$('[data-model-cid]:nth-child(3n) .price').addClass('original-price').each(function() {
+      this.$('[data-model-cid]:nth-child(3n) .price').not('.dynamic-price').addClass('original-price').each(function() {
         var priceElement = $(this);
         var originalPrice = cleanPrice(priceElement.text());
-        if (!originalPrice.match(/(from|varies)/i)) { 
-          priceElement.parent().append('<div class="price dynamic-price">' + replaceNumbers('$' + originalPrice, '$' + originalPrice) + '</div>');
+        var priceContainer = priceElement.parent();
+
+        if (!originalPrice.match(/(from|varies)/i) && priceContainer.find('.dynamic-price').length < 1) {
+          priceContainer.append('<div class="price dynamic-price">' + replaceNumbers('$' + originalPrice, '$' + originalPrice) + '</div>');
           priceElement.hide();
         }
+
       });
 
     }, this);
