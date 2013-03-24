@@ -19,13 +19,13 @@
 
       &.flipped
         .top
-          animation: flipTop 0.4s linear both
+          animation: flipTop 0.3s linear both
 
         .bottom
           background-image: linear-gradient(top, rgba(0,0,0,0.15), transparent)
           background-repeat: no-repeat
           background-size: 50px
-          animation: shadowBottom 0.4s linear both
+          animation: shadowBottom 0.3s linear both
 
   .new-price
     display: block
@@ -36,10 +36,10 @@
 
       &.flipped
         .top
-          animation: shadowTop 0.4s linear both
+          animation: shadowTop 0.3s linear both
 
         .bottom
-          animation: flipBottom 0.4s 0.4s linear both
+          animation: flipBottom 0.3s 0.3s linear both
           z-index: 100
 
   .digit, .decimal, .special
@@ -50,6 +50,9 @@
     margin: 1px
     height: 1em
     border-radius: 2px
+
+  .digit, .decimal
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.02)
 
   .special
     top: -7px
