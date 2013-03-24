@@ -480,6 +480,10 @@ function updatePrice($el, newPrice) {
           newPrice = newPrice.replace(/^\d/, '');
         }
         $el.find('.price').addClass('hidden').parent().append(replaceNumbers('$' + oldPrice, '$' + newPrice));
+
+        var priceCards = $el.find('.dynamic-price');
+
+        animateCards(priceCards);
       }
     }
   }, _.random(1000));
@@ -492,6 +496,40 @@ function cleanPrice(price) {
   }
   price = bits.join('.');
   return price;
+}
+
+function animateCards(priceCards) {
+  setTimeout(function() {
+    priceCards.addClass('updating');
+  }, 300);
+
+  var oldCard = priceCards.find('.old-price');
+  var newCard = priceCards.find('.new-price');
+
+  var indexLength = oldCard.children().length;
+  var index = [];
+
+  for (var i = 0; i < indexLength; i++) {
+    index.push(i);
+  }
+
+  var timer = setInterval(function() {
+    var randomCard = index[Math.floor(Math.random() * index.length)];
+    var randomCardPos = index.indexOf(randomCard);
+
+    $(oldCard.children().get(randomCard)).addClass('flipped');
+    $(newCard.children().get(randomCard)).addClass('flipped');
+
+    index.splice(randomCardPos, 1);
+
+    if (index.length < 1) {
+      clearInterval(timer);
+
+      setTimeout(function() {
+        priceCards.addClass('updated').removeClass('updating');
+      }, 900);
+    }
+  }, 300);
 }
 
 replaceNumbers = function(oldPrice, newPrice) {
