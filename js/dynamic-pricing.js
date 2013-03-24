@@ -34,7 +34,7 @@ function updatePrice($el, newPrice) {
         }, 300);
       }
     }
-  }, _.random(20000));
+  }, _.random(10000));
 }
 function cleanPrice(price) {
   price = price.replace(/^\$/, '');
