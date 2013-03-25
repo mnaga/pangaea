@@ -300,6 +300,7 @@ var ShelfView = Phoenix.CollectionView.extend({
         this.clickPaginatorBottom.show();
       }
 
+      /*
       this.$('[data-model-cid]:nth-child(3n) .price').not('.dynamic-price').addClass('original-price').each(function() {
         var priceElement = $(this);
         var originalPrice = cleanPrice(priceElement.text());
@@ -311,6 +312,7 @@ var ShelfView = Phoenix.CollectionView.extend({
         }
 
       });
+      */
 
     }, this);
   },
