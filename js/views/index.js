@@ -135,8 +135,8 @@ var ShelfView = Phoenix.CollectionView.extend({
       this.departmentPicker.disable();
       this.departmentPicker.bind('show', function(){
         this.departmentList.show();
+        this.toggleRefinements(false);
         if (!Phoenix.isDesktop) {
-          this.toggleRefinements(false);
           _.invoke(this._elementsToToggle(['shelf-department-list']), 'hide');
         }
       },this);
